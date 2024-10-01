@@ -2,13 +2,29 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
+import { BrowserRouter } from "react-router-dom";
+// import { ClerkProvider } from "@clerk/clerk-react";
+import axios from "axios";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );
+
+// const PUBLISHABLE_KEY =
+//   "pk_test_c2FjcmVkLWJ1bGxkb2ctMjAuY2xlcmsuYWNjb3VudHMuZGV2JA";
+
+// if (!PUBLISHABLE_KEY) {
+//   throw new Error("Missing Publishable Key");
+// }
+axios.defaults.baseURL = "http://localhost:5000/api/";
+axios.defaults.withCredentials = true;
 root.render(
   <React.StrictMode>
-    <App />
+    {/* <ClerkProvider publishableKey={PUBLISHABLE_KEY} afterSignOutUrl="/"> */}
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+    {/* </ClerkProvider> */}
   </React.StrictMode>
 );
 

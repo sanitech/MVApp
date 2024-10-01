@@ -856,7 +856,7 @@ body {
 }
 
 .demo-page .demo-page-navigation {
-    width: 18em;
+    width: 22em;
     padding: 2em 1em
 }
 
@@ -905,7 +905,7 @@ body {
 
 @media only screen and (min-width:750px) {
     .demo-page .demo-page-content {
-        width: calc(100% - 18em)
+        width: calc(100% - 10em)
     }
 }
 

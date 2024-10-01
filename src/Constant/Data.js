@@ -134,14 +134,14 @@ export const dashboardLink = [
         height="24px"
         viewBox="0 -960 960 960"
         width="24px"
-        fill="#e8eaed"
+        fill="currentColor"
       >
         <path d="M280-80v-366q-51-14-85.5-56T160-600v-280h80v280h40v-280h80v280h40v-280h80v280q0 56-34.5 98T360-446v366h-80Zm400 0v-320H560v-280q0-83 58.5-141.5T760-880v800h-80Z" />
       </svg>
     ),
   },
   {
-    link: "/dashboard/products",
+    link: "/dashboard/menu",
     name: "Menu",
     icon: (
       <svg
@@ -149,7 +149,7 @@ export const dashboardLink = [
         height="24px"
         viewBox="0 -960 960 960"
         width="24px"
-        fill="#e8eaed"
+        fill="currentColor"
       >
         <path d="M280-80v-366q-51-14-85.5-56T160-600v-280h80v280h40v-280h80v280h40v-280h80v280q0 56-34.5 98T360-446v366h-80Zm400 0v-320H560v-280q0-83 58.5-141.5T760-880v800h-80Z" />
       </svg>
@@ -164,7 +164,7 @@ export const dashboardLink = [
         height="24px"
         viewBox="0 -960 960 960"
         width="24px"
-        fill="#e8eaed"
+        fill="currentColor"
       >
         <path d="M440-440q17 0 28.5-11.5T480-480q0-17-11.5-28.5T440-520q-17 0-28.5 11.5T400-480q0 17 11.5 28.5T440-440ZM280-120v-80l240-40v-445q0-15-9-27t-23-14l-208-34v-80l220 36q44 8 72 41t28 77v512l-320 54Zm-160 0v-80h80v-560q0-34 23.5-57t56.5-23h400q34 0 57 23t23 57v560h80v80H120Zm160-80h400v-560H280v560Z" />
       </svg>
@@ -179,7 +179,7 @@ export const dashboardLink = [
         height="24px"
         viewBox="0 -960 960 960"
         width="24px"
-        fill="#e8eaed"
+        fill="currentColor"
       >
         <path d="M600-120h240v-33q-25-23-56-35t-64-12q-33 0-64 12t-56 35v33Zm120-120q25 0 42.5-17.5T780-300q0-25-17.5-42.5T720-360q-25 0-42.5 17.5T660-300q0 25 17.5 42.5T720-240ZM480-480Zm2-140q-58 0-99 41t-41 99q0 48 27 84t71 50q0-23 .5-44t8.5-38q-14-8-20.5-22t-6.5-30q0-25 17.5-42.5T482-540q15 0 28.5 7.5T533-512q11-5 23-7t24-2h36q-13-43-49.5-71T482-620ZM370-80l-16-128q-13-5-24.5-12T307-235l-119 50L78-375l103-78q-1-7-1-13.5v-27q0-6.5 1-13.5L78-585l110-190 119 50q11-8 23-15t24-12l16-128h220l16 128q13 5 24.5 12t22.5 15l119-50 110 190-85 65H696q-1-5-2-10.5t-3-10.5l86-65-39-68-99 42q-22-23-48.5-38.5T533-694l-13-106h-79l-14 106q-31 8-57.5 23.5T321-633l-99-41-39 68 86 64q-5 15-7 30t-2 32q0 16 2 31t7 30l-86 65 39 68 99-42q24 25 54 42t65 22v184h-70Zm210 40q-25 0-42.5-17.5T520-100v-280q0-25 17.5-42.5T580-440h280q25 0 42.5 17.5T920-380v280q0 25-17.5 42.5T860-40H580Z" />
       </svg>
@@ -222,5 +222,24 @@ export const daysOfWeek = [
     day: "Sunday",
     description:
       "A day for rest, reflection, and preparation for the upcoming week. Many people also use it for spending quality time with loved ones.",
+  },
+];
+
+export const SocialMedias = [
+  {
+    platform: "TikTok",
+    logo: (
+      <svg xmlns="http://www.w3.org/2000/svg" width={20} viewBox="0 0 448 512">
+        <path d="M448 209.9a210.1 210.1 0 0 1 -122.8-39.3V349.4A162.6 162.6 0 1 1 185 188.3V278.2a74.6 74.6 0 1 0 52.2 71.2V0l88 0a121.2 121.2 0 0 0 1.9 22.2h0A122.2 122.2 0 0 0 381 102.4a121.4 121.4 0 0 0 67 20.1z" />
+      </svg>
+    ),
+  },
+  {
+    platform: "Facebook",
+    logo: (
+      <svg xmlns="http://www.w3.org/2000/svg" width={20} viewBox="0 0 448 512">
+        <path d="M400 32H48A48 48 0 0 0 0 80v352a48 48 0 0 0 48 48h137.3V327.7h-63V256h63v-54.6c0-62.2 37-96.5 93.7-96.5 27.1 0 55.5 4.8 55.5 4.8v61h-31.3c-30.8 0-40.4 19.1-40.4 38.7V256h68.8l-11 71.7h-57.8V480H400a48 48 0 0 0 48-48V80a48 48 0 0 0 -48-48z" />
+      </svg>
+    ),
   },
 ];
