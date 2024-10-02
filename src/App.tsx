@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useLayoutEffect, useState } from "react";
 import RegisterVendor from "./Pages/RegisterVendor";
 import DashboardPage from "./Pages/Dashborad/Dashboard";
 import VendorMenu from "./Pages/Dashborad/VendorMenu";
@@ -26,22 +26,17 @@ import ForgetPassword from "./Pages/Auth/ForgetPassword";
 import AdminDashboard from "./Pages/Admin/AdminDashboard";
 import CategoryList from "./Pages/Admin/CategoryList";
 import ResetPassword from "./Pages/Auth/ResetPassword";
-import "preline/preline";
+import MenuCreateForm from "./Pages/Dashborad/CreateMenu";
 
-declare global {
-  interface Window {
-    HSStaticMethods: IStaticMethods;
-  }
-}
 const DashboardLayout = () => {
   const location = useLocation();
-  useEffect(() => {
+
+  useLayoutEffect(() => {
+    // Re-initialize Preline when the route changes
     if (window.HSStaticMethods) {
       window.HSStaticMethods.autoInit();
-    } else {
-      console.error("HSStaticMethods is not available");
     }
-  }, [location.pathname]);
+  }, [location]); // Re-run the effect when the route changes
 
   return (
     <div>
@@ -115,6 +110,7 @@ const App = () => {
           <Route path="menu" element={<VendorMenu />} />
           <Route path="menu/:id" element={<VendorMenu />} />
           <Route path="menu/create" element={<MenuCreate />} />
+          <Route path="menu/create/sample" element={<MenuCreateForm />} />
           <Route path="menu/edit/:id" element={<MenuEdit />} />
           <Route path="menu/delete/:id" element={<VendorMenu />} />
           <Route path="orders" element={<VendorOrder />} />
@@ -122,18 +118,20 @@ const App = () => {
         </Route>
 
         <Route
-          path="admin/dashboard"
+          path="admin"
           element={
             <AdminProtectedRoute>
               <AdminDashboardLayout />
             </AdminProtectedRoute>
           }
         >
-          <Route index element={<AdminDashboard />} />
+          <Route index path="dashboard" element={<AdminDashboard />} />
           <Route path="vendor/:id" element={<VendorDetailPage />} />
           <Route path="payment" element={<Payment />} />
           <Route path="users" element={<UserMgtPage />} />
           <Route path="users/:id" element={<Payment />} />
+          <Route path="vendors" element={<DashboardPage />} />
+          <Route path="vendors/:id" element={<VendorDetailPage />} />
           <Route path="category/list" element={<CategoryList />} />
         </Route>
         <Route path="*" element={<h1>Not found</h1>} />

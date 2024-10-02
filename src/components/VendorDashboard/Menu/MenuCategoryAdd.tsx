@@ -4,6 +4,7 @@ import React, { useRef, useState } from "react";
 const MenuCategoryCardAdd = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const user = JSON.parse(localStorage.getItem("userData") || "{}");
 
   const modelRef = useRef<HTMLDivElement>(null);
   const createCategoryHandler = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -19,14 +20,11 @@ const MenuCategoryCardAdd = () => {
 
     try {
       // Post data to the server
-      const response = await axios.post(
-        "http://localhost:5000/api/v1/menu/category",
-        {
-          category: category.value,
-          description: description.value,
-          vendor_id: "465dbe94-5f73-11ef-a2ed-80e82caf895d",
-        }
-      );
+      const response = await axios.post("/v1/menu/category", {
+        category: category.value,
+        description: description.value,
+        vendor_id: user.vendor_id,
+      });
 
       // Close modal and clear inputs if the response is successful
       setIsModalOpen(false);
@@ -38,23 +36,6 @@ const MenuCategoryCardAdd = () => {
         // Check for error response and status which might be undefined
         setError(error.response?.data?.message);
         const status = error.response?.status;
-        // switch (status) {
-        //   case 400:
-        //     console.error("Bad request");
-        //     setError("Bad request");
-        //     break;
-        //   case 401:
-        //     console.error("Unauthorized");
-        //     setError("Unauthorized");
-        //     break;
-        //   case 404:
-        //     console.error("Not found");
-        //     setError("Not found");
-        //     break;
-        //   default:
-        //     console.error(`Error ${status}: ${error.message}`);
-        //     setError(`Error ${status}: ${error.message}`);
-        // }
       } else {
         // Handle non-Axios error
         console.error("An unknown error occurred");

@@ -4,7 +4,6 @@ import MenuCard from "../../components/VendorDashboard/Menu/MenuCard";
 import MenuCategoryCardAdd from "../../components/VendorDashboard/Menu/MenuCategoryAdd";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import { AuthContext } from "../../context/AuthProvider";
 
 type categoryProps = {
   category_id: string;
@@ -19,7 +18,7 @@ type categoryProps = {
 type menuProps = {
   item_id: string;
   item_name: string;
-  price: number;
+  base_price: number;
   description: string;
   image_url: string;
   category_name: string;
@@ -34,12 +33,12 @@ const VendorMenu = () => {
   const [loading, setLoading] = useState(false);
   const [deletedCategory, setDeletedCategory] = useState<string | null>(null);
   const [deletedMenuId, setDeletedMenuId] = useState<string | null>(null);
-  const { user } = useContext(AuthContext);
+  const user = JSON.parse(localStorage.getItem("userData") || "{}");
   const fetchCategory = async () => {
     setLoading(true);
     try {
       const response = await axios.get(
-        "http://localhost:5000/api/v1/menu/category"
+        `/v1/menu/category/vendor/${user.vendor_id}`
       );
       setCategory(response.data);
       setError(null); // Clear any existing errors on successful fetch
@@ -51,7 +50,6 @@ const VendorMenu = () => {
   };
 
   const fetchMenu = async () => {
-    // alert(user.vendor_id)
     setLoading(true);
     try {
       const response = await axios.get(`/v1/menus/vendor/${user.vendor_id}`);
@@ -158,7 +156,7 @@ const VendorMenu = () => {
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke="currentColor"
-                  stroke-width="2"
+                  strokeWidth="2"
                   stroke-linecap="round"
                   stroke-linejoin="round"
                 >

@@ -67,7 +67,7 @@ function AdminLoginPage() {
             <form onSubmit={handleLogin}>
               <div class="grid gap-y-4">
                 <div>
-                  <label for="email" class="block text-sm mb-2 ">
+                  <label htmlFor="email" class="block text-sm mb-2 ">
                     Email address
                   </label>
                   <div class="relative">
@@ -101,7 +101,7 @@ function AdminLoginPage() {
                 </div>
 
                 <div>
-                  <label for="password" class="block text-sm mb-2 ">
+                  <label htmlFor="password" class="block text-sm mb-2 ">
                     Password
                   </label>
                   <div class="relative">

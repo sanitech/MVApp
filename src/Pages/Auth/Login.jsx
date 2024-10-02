@@ -76,7 +76,7 @@ function LoginPage() {
             <form onSubmit={handleLogin}>
               <div class="grid gap-y-4">
                 <div>
-                  <label for="email" class="block text-sm mb-2 ">
+                  <label htmlFor="email" class="block text-sm mb-2 ">
                     Email address
                   </label>
                   <div class="relative">
@@ -112,7 +112,7 @@ function LoginPage() {
                 <div>
                   <div class="flex justify-between items-center">
                     <label
-                      for="password"
+                      htmlFor="password"
                       class="block text-sm mb-2 text-gray-900"
                     >
                       Password

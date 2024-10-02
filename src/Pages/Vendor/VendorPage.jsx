@@ -205,7 +205,7 @@ const VendorDetailPage = () => {
                 {/* <!-- Education Background --> */}
                 <div class="py-3 sm:order-none order-1">
                   <h2 class="text-lg font-poppins font-bold text-top-color">
-                    Work Day
+                    Business hours
                   </h2>
                   <div class="border-2 w-20 border-top-color my-3"></div>
                   <div className="flex gap-3">

@@ -1,14 +1,25 @@
-import React from "react";
+import React, { useEffect } from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
-import { BrowserRouter } from "react-router-dom";
+import { BrowserRouter, useLocation } from "react-router-dom";
 // import { ClerkProvider } from "@clerk/clerk-react";
 import axios from "axios";
+import "preline/preline";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );
+
+export {};
+
+declare global {
+  interface Window {
+    HSStaticMethods: {
+      autoInit: () => void;
+    };
+  }
+}
 
 // const PUBLISHABLE_KEY =
 //   "pk_test_c2FjcmVkLWJ1bGxkb2ctMjAuY2xlcmsuYWNjb3VudHMuZGV2JA";

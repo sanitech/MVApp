@@ -73,7 +73,7 @@ function VendorsCard() {
                 <div class="mt-auto flex border-t border-gray-200 divide-x divide-gray-200 dark:border-neutral-700 dark:divide-neutral-700">
                   <div
                     onClick={() =>
-                      navigate(`vendor/${vendor.vendor_id}`, {
+                      navigate(`${vendor.vendor_id}`, {
                         state: vendor,
                       })
                     }

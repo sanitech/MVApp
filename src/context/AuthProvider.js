@@ -27,7 +27,7 @@ const AuthProvider = ({ children }) => {
   const login = async (response) => {
     try {
       // Redirect or perform other actions here
-      const user = response.userDetails;
+      const user = response.userData;
       localStorage.setItem("userData", JSON.stringify(user));
       console.log("first", user);
       setUser(user);

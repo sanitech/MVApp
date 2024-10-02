@@ -5,7 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 type menuProps = {
   item_id: string;
   item_name: string;
-  price: number;
+  base_price: number;
   description: string;
   image_url: string;
   category_name: string;
@@ -48,7 +48,7 @@ const MenuCard: React.FC<MenuCardProps> = ({ menu, onDelete }) => {
         </div>
         <div className="flex items-center gap-2">
           <span className="text-gray-700 text-sm font-medium">
-            ${menu.price}
+            ${menu.base_price}
           </span>
         </div>
         <div className="flex items-center gap-2">
