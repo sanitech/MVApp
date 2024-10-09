@@ -10,8 +10,8 @@ export const vendorRegisterCategory = [
         fill="none"
         stroke="currentColor"
         strokeWidth="2"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeLinecap="round"
+        strokeLinejoin="round"
         class="feather feather-tool"
       >
         <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" />
@@ -30,8 +30,8 @@ export const vendorRegisterCategory = [
         fill="none"
         stroke="currentColor"
         strokeWidth="2"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeLinecap="round"
+        strokeLinejoin="round"
         class="feather feather-tool"
       >
         <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" />
@@ -51,8 +51,8 @@ export const vendorRegisterCategory = [
         fill="none"
         stroke="currentColor"
         strokeWidth="2"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeLinecap="round"
+        strokeLinejoin="round"
         class="feather feather-tool"
       >
         <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" />
@@ -71,8 +71,8 @@ export const vendorRegisterCategory = [
         fill="none"
         stroke="currentColor"
         strokeWidth="2"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeLinecap="round"
+        strokeLinejoin="round"
         class="feather feather-tool"
       >
         <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" />
@@ -92,8 +92,8 @@ export const vendorRegisterCategory = [
         fill="none"
         stroke="currentColor"
         strokeWidth="2"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeLinecap="round"
+        strokeLinejoin="round"
         class="feather feather-tool"
       >
         <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" />
@@ -117,8 +117,8 @@ export const dashboardLink = [
         fill="none"
         stroke="currentColor"
         strokeWidth="2"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       >
         <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
         <polyline points="9 22 9 12 15 12 15 22" />
@@ -135,13 +135,13 @@ export const dashboardLink = [
         width={20}
         height={20}
         viewBox="0 0 256 241"
-        enable-background="new 0 0 256 241"
+        enableBackground="new 0 0 256 241"
       >
         <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
         <g
           id="SVGRepo_tracerCarrier"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         ></g>
         <g id="SVGRepo_iconCarrier">
           {" "}
@@ -169,8 +169,8 @@ export const dashboardLink = [
         <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
         <g
           id="SVGRepo_tracerCarrier"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         ></g>
         <g id="SVGRepo_iconCarrier">
           {" "}
@@ -188,7 +188,7 @@ export const dashboardLink = [
     list: [
       { link: "/dashboard/menu", item: "View Menu" },
       { link: "/dashboard/menu/create", item: "Add Menu Item" },
-      { link: "/dashboard/menu/create/sample", item: "Edit Categories" },
+      { link: "/dashboard/menu/create/sample", item: "Combo Deals" },
     ],
   },
   {
@@ -205,8 +205,8 @@ export const dashboardLink = [
         <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
         <g
           id="SVGRepo_tracerCarrier"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         ></g>
         <g id="SVGRepo_iconCarrier">
           <path
@@ -242,8 +242,8 @@ export const dashboardLink = [
         <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
         <g
           id="SVGRepo_tracerCarrier"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         ></g>
         <g id="SVGRepo_iconCarrier">
           {" "}
@@ -283,8 +283,8 @@ export const dashboardLink = [
         <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
         <g
           id="SVGRepo_tracerCarrier"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         ></g>
         <g id="SVGRepo_iconCarrier">
           {" "}
@@ -312,8 +312,8 @@ export const dashboardLink = [
         <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
         <g
           id="SVGRepo_tracerCarrier"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         ></g>
         <g id="SVGRepo_iconCarrier">
           <path d="M48.91 526.083h-39.047v458.365h1001.585v-458.365h-39.047zM691.728 206.87c-7.731-93.19-85.909-166.721-181.074-166.721s-173.344 73.53-181.074 166.721h-319.721v277.138h1001.585v-277.138h-319.721zM368.69 206.87c7.575-71.657 68.337-127.674 141.966-127.674s134.389 56.016 141.966 127.674h-283.929z"></path>
@@ -340,8 +340,8 @@ export const dashboardLink = [
         <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
         <g
           id="SVGRepo_tracerCarrier"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         ></g>
         <g id="SVGRepo_iconCarrier">
           {" "}
@@ -376,8 +376,8 @@ export const dashboardLink = [
           <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
           <g
             id="SVGRepo_tracerCarrier"
-            stroke-linecap="round"
-            stroke-linejoin="round"
+            strokeLinecap="round"
+            strokeLinejoin="round"
           ></g>
           <g id="SVGRepo_iconCarrier">
             {" "}
@@ -436,8 +436,8 @@ export const dashboardLink = [
         <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
         <g
           id="SVGRepo_tracerCarrier"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         ></g>
         <g id="SVGRepo_iconCarrier">
           {" "}
@@ -478,13 +478,13 @@ export const dashboardLink = [
         version="1.1"
         id="Layer_1"
         viewBox="0 0 236 256"
-        enable-background="new 0 0 236 256"
+        enableBackground="new 0 0 236 256"
       >
         <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
         <g
           id="SVGRepo_tracerCarrier"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         ></g>
         <g id="SVGRepo_iconCarrier">
           {" "}
@@ -502,7 +502,7 @@ export const daysOfWeek = [
       "The start of the workweek. Often seen as a fresh start or a tough day.",
   },
   {
-    day: "Tues",
+    day: "Tue",
     description:
       "A day to get into the groove of the week. Productivity tends to pick up after the Monday blues.",
   },
@@ -512,7 +512,7 @@ export const daysOfWeek = [
       "Often referred to as 'Hump Day,' it's the midpoint of the workweek. Once you’re over the hump, the weekend feels closer.",
   },
   {
-    day: "Thur",
+    day: "Thu",
     description:
       "The anticipation of the weekend starts building up. Many people begin planning their weekend activities.",
   },
@@ -551,3 +551,52 @@ export const SocialMedias = [
     ),
   },
 ];
+
+export const nutritionalIcon = (
+  <svg
+    fill="currentColor"
+    width={20}
+    height={20}
+    version="1.1"
+    id="Layer_1"
+    viewBox="0 0 511.999 511.999"
+  >
+    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+    <g
+      id="SVGRepo_tracerCarrier"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    ></g>
+    <g id="SVGRepo_iconCarrier">
+      {" "}
+      <g>
+        {" "}
+        <g>
+          {" "}
+          <path d="M245.097,116.584l-8.501-6.832c-1.797-1.444-3.145-3.284-4.005-5.336c-0.707-1.692-1.09-3.526-1.064-5.425 c0.016-1.175,0.194-2.318,0.496-3.419c0.777-2.84,2.45-5.367,4.863-7.201c11.738-8.92,18.676-22.489,19.035-37.227 c0.359-14.739-5.908-28.63-17.198-38.112c-7.331-6.158-18.264-5.206-24.42,2.125c-6.157,7.331-5.206,18.263,2.124,24.421 c4.347,3.651,4.897,8.284,4.838,10.72c-0.059,2.435-0.834,7.035-5.356,10.47c-11.901,9.046-18.843,22.805-19.044,37.753 c-0.202,14.947,6.365,28.89,18.017,38.253l8.501,6.832c3.202,2.573,7.036,3.824,10.847,3.824c5.072,0,10.098-2.216,13.522-6.477 C253.747,133.49,252.559,122.58,245.097,116.584z"></path>{" "}
+        </g>{" "}
+      </g>{" "}
+      <g>
+        {" "}
+        <g>
+          {" "}
+          <path d="M317.08,125.552l-9.971-8.014c-0.893-0.718-1.685-1.521-2.421-2.365c-3.027-3.475-4.706-7.918-4.643-12.631 c0.051-3.72,1.173-7.246,3.174-10.238c1.151-1.721,2.588-3.267,4.293-4.562c13.037-9.909,20.743-24.98,21.142-41.35 c0.4-16.369-6.562-31.799-19.1-42.33c-7.331-6.158-18.264-5.207-24.421,2.124c-6.157,7.33-5.206,18.263,2.124,24.42 c4.426,3.717,6.882,9.163,6.741,14.941s-2.861,11.098-7.462,14.594c-13.218,10.045-20.929,25.328-21.153,41.93 c-0.224,16.602,7.07,32.088,20.01,42.488l9.971,8.014c3.202,2.573,7.037,3.824,10.847,3.824c5.072,0,10.097-2.216,13.522-6.476 C325.729,142.459,324.543,131.549,317.08,125.552z"></path>{" "}
+        </g>{" "}
+      </g>{" "}
+      <g>
+        {" "}
+        <g>
+          {" "}
+          <path d="M386.351,116.584l-8.501-6.832c-1.797-1.444-3.145-3.283-4.005-5.336c-0.708-1.692-1.09-3.526-1.064-5.425 c0.016-1.175,0.194-2.319,0.496-3.42c0.777-2.839,2.45-5.367,4.863-7.2c11.738-8.92,18.676-22.489,19.035-37.227 c0.359-14.739-5.908-28.63-17.198-38.112c-7.331-6.158-18.264-5.206-24.42,2.125c-6.157,7.331-5.206,18.263,2.124,24.421 c4.347,3.651,4.897,8.284,4.838,10.72c-0.06,2.435-0.836,7.035-5.356,10.47c-11.901,9.046-18.843,22.805-19.044,37.753 c-0.202,14.947,6.365,28.89,18.017,38.253l8.501,6.832c3.202,2.573,7.036,3.824,10.847,3.824c5.072,0,10.098-2.216,13.522-6.477 C395.002,133.49,393.814,122.58,386.351,116.584z"></path>{" "}
+        </g>{" "}
+      </g>{" "}
+      <g>
+        {" "}
+        <g>
+          {" "}
+          <path d="M477.865,242.056v-62.323c0-9.573-7.761-17.473-17.333-17.473c-6.286,0-11.775,3.606-14.814,8.229H146.232L66.847,18.079 c-4.42-8.491-14.888-11.723-23.378-7.303c-8.492,4.419-11.793,14.919-7.375,23.412l77.775,149.488v58.38 c0,70.32,39.84,131.478,98.068,161.992l-54.124,80.985c-5.319,7.959-3.179,18.723,4.779,24.042 c2.959,1.978,6.306,2.925,9.615,2.925c5.594,0,11.085-2.704,14.427-7.704l24.083-36.034l68.394,21.102v4.676 c0,9.573,7.761,17.333,17.333,17.333c9.573,0,17.333-7.761,17.333-17.333v-4.676l68.394-21.102l24.083,36.034 c3.342,5,8.833,7.704,14.427,7.704c3.31,0,6.657-0.946,9.615-2.925c7.959-5.319,10.098-16.083,4.779-24.042l-54.366-81.346 C438.43,373.053,477.865,312.101,477.865,242.056z M148.537,205.156h294.663v15.022H148.537V205.156z M279.113,453.085 l-48.294-14.901l13.936-20.852c11.056,3.256,22.545,5.486,34.358,6.581V453.085z M313.779,453.086v-29.239 c11.768-1.145,23.208-3.425,34.217-6.724l14.077,21.062L313.779,453.086z M296.157,390.042h-0.144 c-76.93,0-140.279-58.932-146.894-135.198h293.501C436.024,331.11,372.86,390.042,296.157,390.042z"></path>{" "}
+        </g>{" "}
+      </g>{" "}
+    </g>
+  </svg>
+);

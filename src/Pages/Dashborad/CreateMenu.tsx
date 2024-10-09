@@ -9,6 +9,7 @@ interface MenuItem {
   category: string;
   isAvailable: boolean;
   availabilitySchedule: Availability[];
+  nutritionalInfo: NutritionalInfo;
   image?: File | null;
 }
 
@@ -16,6 +17,15 @@ interface Availability {
   day: string;
   startTime: string;
   endTime: string;
+}
+
+interface NutritionalInfo {
+  calories: string;
+  fat: string;
+  protein: string;
+  carbs: string;
+  fiber: string;
+  sodium: string;
 }
 
 const daysOfWeek = [
@@ -37,6 +47,14 @@ const MenuCreateForm: React.FC = () => {
     category: "",
     isAvailable: true,
     availabilitySchedule: [],
+    nutritionalInfo: {
+      calories: "",
+      fat: "",
+      protein: "",
+      carbs: "",
+      fiber: "",
+      sodium: "",
+    },
     image: null,
   });
 
@@ -120,6 +138,14 @@ const MenuCreateForm: React.FC = () => {
     });
   };
 
+  const handleNutritionalChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setMenuItem((prevState) => ({
+      ...prevState,
+      nutritionalInfo: { ...prevState.nutritionalInfo, [name]: value },
+    }));
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError(null);
@@ -136,19 +162,23 @@ const MenuCreateForm: React.FC = () => {
       "availabilitySchedule",
       JSON.stringify(menuItem.availabilitySchedule)
     );
+    formData.append(
+      "nutritionalInfo",
+      JSON.stringify(menuItem.nutritionalInfo)
+    );
 
     if (menuItem.image) {
       formData.append("image", menuItem.image);
     }
 
     try {
-      const response = await axios.post(
-        "http://localhost:5000/api/v1/menu/create",
-        formData,
-        {
-          headers: { "Content-Type": "multipart/form-data" },
-        }
-      );
+      // const response = await axios.post(
+      //   "http://localhost:5000/api/v1/menu/create",
+      //   formData,
+      //   {
+      //     headers: { "Content-Type": "multipart/form-data" },
+      //   }
+      // );
       setSuccess("Menu item created successfully!");
       setMenuItem({
         itemName: "",
@@ -158,6 +188,14 @@ const MenuCreateForm: React.FC = () => {
         category: "",
         isAvailable: true,
         availabilitySchedule: [],
+        nutritionalInfo: {
+          calories: "",
+          fat: "",
+          protein: "",
+          carbs: "",
+          fiber: "",
+          sodium: "",
+        },
         image: null,
       });
     } catch (error) {
@@ -288,13 +326,13 @@ const MenuCreateForm: React.FC = () => {
           <label className="block text-sm font-medium text-gray-700">
             Availability Schedule
           </label>
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 gap-4">
             {daysOfWeek.map((day) => {
               const selectedDay = menuItem.availabilitySchedule.find(
                 (schedule) => schedule.day === day
               );
               return (
-                <div key={day} className="flex flex-col mb-4">
+                <div key={day}>
                   <div className="flex items-center">
                     <input
                       type="checkbox"
@@ -344,6 +382,63 @@ const MenuCreateForm: React.FC = () => {
           </div>
         </div>
 
+        {/* Nutritional Information */}
+        <div className="mb-6">
+          <h3 className="text-sm font-medium text-gray-700">
+            Nutritional Information
+          </h3>
+          <div className="grid grid-cols-2 gap-4 mt-2">
+            <input
+              type="text"
+              name="calories"
+              placeholder="Calories"
+              value={menuItem.nutritionalInfo.calories}
+              onChange={handleNutritionalChange}
+              className="p-3 w-full border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+            />
+            <input
+              type="text"
+              name="fat"
+              placeholder="Fat (g)"
+              value={menuItem.nutritionalInfo.fat}
+              onChange={handleNutritionalChange}
+              className="p-3 w-full border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+            />
+            <input
+              type="text"
+              name="protein"
+              placeholder="Protein (g)"
+              value={menuItem.nutritionalInfo.protein}
+              onChange={handleNutritionalChange}
+              className="p-3 w-full border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+            />
+            <input
+              type="text"
+              name="carbs"
+              placeholder="Carbs (g)"
+              value={menuItem.nutritionalInfo.carbs}
+              onChange={handleNutritionalChange}
+              className="p-3 w-full border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+            />
+            <input
+              type="text"
+              name="fiber"
+              placeholder="Fiber (g)"
+              value={menuItem.nutritionalInfo.fiber}
+              onChange={handleNutritionalChange}
+              className="p-3 w-full border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+            />
+            <input
+              type="text"
+              name="sodium"
+              placeholder="Sodium (mg)"
+              value={menuItem.nutritionalInfo.sodium}
+              onChange={handleNutritionalChange}
+              className="p-3 w-full border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+            />
+          </div>
+        </div>
+
         {/* Image Upload */}
         <div className="mb-6">
           <label className="block text-sm font-medium text-gray-700">
@@ -357,55 +452,11 @@ const MenuCreateForm: React.FC = () => {
           />
         </div>
 
-        <div className="flex gap-4 p-4 rounded-full bg-gray-100 border-gray-600 border-2">
-          <label className="flex flex-col items-center">
-            <input type="checkbox" className="hidden peer" />
-            <div className="peer-checked:bg-white peer-checked:text-purple-500 bg-transparent w-12 h-12 rounded-full flex justify-center items-center text-black border-2 border-white transition-colors">
-              Sun
-            </div>
-          </label>
-          <label className="flex flex-col items-center">
-            <input type="checkbox" className="hidden peer" />
-            <div className="peer-checked:bg-white peer-checked:text-purple-500 bg-transparent w-12 h-12 rounded-full flex justify-center items-center text-black border-2 border-white transition-colors">
-              Mon
-            </div>
-          </label>
-          <label className="flex flex-col items-center">
-            <input type="checkbox" className="hidden peer" />
-            <div className="peer-checked:bg-white peer-checked:text-purple-500 bg-transparent w-12 h-12 rounded-full flex justify-center items-center text-black border-2 border-white transition-colors">
-              Tue
-            </div>
-          </label>
-          <label className="flex flex-col items-center">
-            <input type="checkbox" className="hidden peer" />
-            <div className="peer-checked:bg-white peer-checked:text-purple-500 bg-transparent w-12 h-12 rounded-full flex justify-center items-center text-black border-2 border-white transition-colors">
-              Wed
-            </div>
-          </label>
-          <label className="flex flex-col items-center">
-            <input type="checkbox" className="hidden peer" />
-            <div className="peer-checked:bg-white peer-checked:text-purple-500 bg-transparent w-12 h-12 rounded-full flex justify-center items-center text-black border-2 border-white transition-colors">
-              Thu
-            </div>
-          </label>
-          <label className="flex flex-col items-center">
-            <input type="checkbox" className="hidden peer" />
-            <div className="peer-checked:bg-white peer-checked:text-purple-500 bg-transparent w-12 h-12 rounded-full flex justify-center items-center text-black border-2 border-white transition-colors">
-              Fri
-            </div>
-          </label>
-          <label className="flex flex-col items-center">
-            <input type="checkbox" className="hidden peer" />
-            <div className="peer-checked:bg-white peer-checked:text-purple-500 bg-transparent w-12 h-12 rounded-full flex justify-center items-center text-black border-2 border-white transition-colors">
-              Sat
-            </div>
-          </label>
-        </div>
         {/* Submit Button */}
         <div>
           <button
             type="submit"
-            className="w-full py-3 px-4 border border-transparent rounded-md shadow-sm text-black bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+            className="w-full py-3 px-4 border border-transparent rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
           >
             Create Menu Item
           </button>

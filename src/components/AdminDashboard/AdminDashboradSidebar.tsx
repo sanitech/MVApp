@@ -25,8 +25,8 @@ const AdminDashboradSidebar = () => {
               fill="none"
               stroke="currentColor"
               strokeWidth="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              strokeLinecap="round"
+              strokeLinejoin="round"
             >
               <rect width="18" height="18" x="3" y="3" rx="2" />
               <path d="M15 3v18" />
@@ -49,7 +49,7 @@ const AdminDashboradSidebar = () => {
                   d="M5 1L10.6869 7.16086C10.8637 7.35239 10.8637 7.64761 10.6869 7.83914L5 14"
                   stroke="currentColor"
                   strokeWidth="2"
-                  stroke-linecap="round"
+                  strokeLinecap="round"
                 />
               </svg>
             </li>
@@ -140,8 +140,8 @@ const AdminDashboradSidebar = () => {
                       fill="none"
                       stroke="currentColor"
                       strokeWidth="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
                     >
                       <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
                       <polyline points="9 22 9 12 15 12 15 22" />
@@ -163,8 +163,8 @@ const AdminDashboradSidebar = () => {
                       fill="none"
                       stroke="currentColor"
                       strokeWidth="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
                     >
                       <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
                       <circle cx="9" cy="7" r="4" />
@@ -191,8 +191,8 @@ const AdminDashboradSidebar = () => {
                       fill="none"
                       stroke="currentColor"
                       strokeWidth="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
                     >
                       <circle cx="18" cy="15" r="3" />
                       <circle cx="9" cy="7" r="4" />
@@ -216,8 +216,8 @@ const AdminDashboradSidebar = () => {
                       fill="none"
                       stroke="currentColor"
                       strokeWidth="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
                     >
                       <path d="m18 15-6-6-6 6" />
                     </svg>
@@ -230,8 +230,8 @@ const AdminDashboradSidebar = () => {
                       fill="none"
                       stroke="currentColor"
                       strokeWidth="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
                     >
                       <path d="m6 9 6 6 6-6" />
                     </svg>
@@ -263,6 +263,94 @@ const AdminDashboradSidebar = () => {
                     </ul>
                   </div>
                 </li>
+                <li className="hs-accordion" id="account-accordion">
+                  <button
+                    type="button"
+                    className="hs-accordion-toggle w-full text-start flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-white rounded-lg hover:bg-white/10 focus:outline-none focus:bg-white/10"
+                    aria-expanded="true"
+                    aria-controls="account-accordion-child"
+                  >
+                    <svg
+                      className="shrink-0 mt-0.5 size-4"
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <circle cx="18" cy="15" r="3" />
+                      <circle cx="9" cy="7" r="4" />
+                      <path d="M10 15H6a4 4 0 0 0-4 4v2" />
+                      <path d="m21.7 16.4-.9-.3" />
+                      <path d="m15.2 13.9-.9-.3" />
+                      <path d="m16.6 18.7.3-.9" />
+                      <path d="m19.1 12.2.3-.9" />
+                      <path d="m19.6 18.7-.4-1" />
+                      <path d="m16.8 12.3-.4-1" />
+                      <path d="m14.3 16.6 1-.4" />
+                      <path d="m20.7 13.8 1-.4" />
+                    </svg>
+                    Category management
+                    <svg
+                      className="hs-accordion-active:block ms-auto hidden size-4"
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <path d="m18 15-6-6-6 6" />
+                    </svg>
+                    <svg
+                      className="hs-accordion-active:hidden ms-auto block size-4"
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <path d="m6 9 6 6 6-6" />
+                    </svg>
+                  </button>
+
+                  <div
+                    id="account-accordion-child"
+                    className="hs-accordion-content w-full overflow-hidden transition-[height] duration-300 hidden"
+                    role="region"
+                    aria-labelledby="account-accordion"
+                  >
+                    <ul className="ps-8 pt-1 space-y-1">
+                      <li>
+                        <Link
+                          className="flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-white rounded-lg hover:bg-white/10 focus:outline-none focus:bg-white/10 dark:bg-neutral-800 dark:text-neutral-400 dark:hover:text-neutral-300 dark:focus:text-neutral-300"
+                          to={"/admin/category/business"}
+                        >
+                          Business Category
+                        </Link>
+                      </li>
+                      <li>
+                        <Link
+                          className="flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-white rounded-lg hover:bg-white/10 focus:outline-none focus:bg-white/10 dark:bg-neutral-800 dark:text-neutral-400 dark:hover:text-neutral-300 dark:focus:text-neutral-300"
+                          to={"/admin/category/menu"}
+                        >
+                          Menu Category
+                        </Link>
+                      </li>
+                    </ul>
+                  </div>
+                </li>
 
                 <li>
                   <Link
@@ -278,8 +366,8 @@ const AdminDashboradSidebar = () => {
                       fill="none"
                       stroke="currentColor"
                       strokeWidth="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
                     >
                       <rect width="20" height="14" x="2" y="7" rx="2" ry="2" />
                       <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
@@ -299,13 +387,13 @@ const AdminDashboradSidebar = () => {
                       width={20}
                       height={20}
                       viewBox="0 0 256 241"
-                      enable-background="new 0 0 256 241"
+                      enableBackground="new 0 0 256 241"
                     >
                       <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
                       <g
                         id="SVGRepo_tracerCarrier"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
                       ></g>
                       <g id="SVGRepo_iconCarrier">
                         {" "}
@@ -330,8 +418,8 @@ const AdminDashboradSidebar = () => {
                       <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
                       <g
                         id="SVGRepo_tracerCarrier"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
                       ></g>
                       <g id="SVGRepo_iconCarrier">
                         {" "}
@@ -368,8 +456,8 @@ const AdminDashboradSidebar = () => {
                       <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
                       <g
                         id="SVGRepo_tracerCarrier"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
                       ></g>
                       <g id="SVGRepo_iconCarrier">
                         {" "}
@@ -392,15 +480,15 @@ const AdminDashboradSidebar = () => {
                       version="1.0"
                       id="Layer_1"
                       viewBox="0 0 24 24"
-                      enable-background="new 0 0 24 24"
+                      enableBackground="new 0 0 24 24"
                       stroke="#000000"
                       strokeWidth="0.00024000000000000003"
                     >
                       <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
                       <g
                         id="SVGRepo_tracerCarrier"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
                         stroke="#CCCCCC"
                         strokeWidth="0.144"
                       ></g>
@@ -445,28 +533,28 @@ const AdminDashboradSidebar = () => {
                       <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
                       <g
                         id="SVGRepo_tracerCarrier"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
                       ></g>
                       <g id="SVGRepo_iconCarrier">
                         {" "}
                         <path
-                          fill-rule="evenodd"
-                          clip-rule="evenodd"
+                          fillRule="evenodd"
+                          clipRule="evenodd"
                           d="M11.567 9.8895C12.2495 8.90124 12.114 7.5637 11.247 6.7325C10.3679 5.88806 9.02339 5.75928 7.99998 6.4215C7.57983 6.69308 7.25013 7.0837 7.05298 7.5435C6.85867 7.99881 6.80774 8.50252 6.90698 8.9875C7.00665 9.47472 7.25054 9.92071 7.60698 10.2675C7.97021 10.6186 8.42786 10.8563 8.92398 10.9515C9.42353 11.049 9.94062 11.0001 10.413 10.8105C10.8798 10.6237 11.2812 10.3033 11.567 9.8895Z"
                           stroke="currentColor"
                           strokeWidth="0.768"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
                         ></path>{" "}
                         <path
-                          fill-rule="evenodd"
-                          clip-rule="evenodd"
+                          fillRule="evenodd"
+                          clipRule="evenodd"
                           d="M12.433 17.8895C11.7504 16.9012 11.886 15.5637 12.753 14.7325C13.6321 13.8881 14.9766 13.7593 16 14.4215C16.4202 14.6931 16.7498 15.0837 16.947 15.5435C17.1413 15.9988 17.1922 16.5025 17.093 16.9875C16.9933 17.4747 16.7494 17.9207 16.393 18.2675C16.0298 18.6186 15.5721 18.8563 15.076 18.9515C14.5773 19.0481 14.0614 18.9988 13.59 18.8095C13.1222 18.6234 12.7197 18.3034 12.433 17.8895V17.8895Z"
                           stroke="currentColor"
                           strokeWidth="0.768"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
                         ></path>{" "}
                         <path
                           d="M12 7.75049C11.5858 7.75049 11.25 8.08627 11.25 8.50049C11.25 8.9147 11.5858 9.25049 12 9.25049V7.75049ZM19 9.25049C19.4142 9.25049 19.75 8.9147 19.75 8.50049C19.75 8.08627 19.4142 7.75049 19 7.75049V9.25049ZM6.857 9.25049C7.27121 9.25049 7.607 8.9147 7.607 8.50049C7.607 8.08627 7.27121 7.75049 6.857 7.75049V9.25049ZM5 7.75049C4.58579 7.75049 4.25 8.08627 4.25 8.50049C4.25 8.9147 4.58579 9.25049 5 9.25049V7.75049ZM12 17.2505C12.4142 17.2505 12.75 16.9147 12.75 16.5005C12.75 16.0863 12.4142 15.7505 12 15.7505V17.2505ZM5 15.7505C4.58579 15.7505 4.25 16.0863 4.25 16.5005C4.25 16.9147 4.58579 17.2505 5 17.2505V15.7505ZM17.143 15.7505C16.7288 15.7505 16.393 16.0863 16.393 16.5005C16.393 16.9147 16.7288 17.2505 17.143 17.2505V15.7505ZM19 17.2505C19.4142 17.2505 19.75 16.9147 19.75 16.5005C19.75 16.0863 19.4142 15.7505 19 15.7505V17.2505ZM12 9.25049H19V7.75049H12V9.25049ZM6.857 7.75049H5V9.25049H6.857V7.75049ZM12 15.7505H5V17.2505H12V15.7505ZM17.143 17.2505H19V15.7505H17.143V17.2505Z"
@@ -492,8 +580,8 @@ const AdminDashboradSidebar = () => {
                       <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
                       <g
                         id="SVGRepo_tracerCarrier"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
                       ></g>
                       <g id="SVGRepo_iconCarrier">
                         {" "}
@@ -544,216 +632,3 @@ const AdminDashboradSidebar = () => {
 };
 
 export default AdminDashboradSidebar;
-
-// <li className="hs-accordion" id="users-accordion">
-//   <button
-//     type="button"
-//     className="hs-accordion-toggle w-full text-start flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-white rounded-lg hover:bg-white/10 focus:outline-none focus:bg-white/10"
-//     aria-expanded="true"
-//     aria-controls="users-accordion-child"
-//   >
-//     <svg
-//       className="shrink-0 size-4"
-//       xmlns="http://www.w3.org/2000/svg"
-//       width="24"
-//       height="24"
-//       viewBox="0 0 24 24"
-//       fill="none"
-//       stroke="currentColor"
-//       strokeWidth="2"
-//       stroke-linecap="round"
-//       stroke-linejoin="round"
-//     >
-//       <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
-//       <circle cx="9" cy="7" r="4" />
-//       <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
-//       <path d="M16 3.13a4 4 0 0 1 0 7.75" />
-//     </svg>
-//     Vendor
-//     <svg
-//       className="hs-accordion-active:block ms-auto hidden size-4"
-//       xmlns="http://www.w3.org/2000/svg"
-//       width="24"
-//       height="24"
-//       viewBox="0 0 24 24"
-//       fill="none"
-//       stroke="currentColor"
-//       strokeWidth="2"
-//       stroke-linecap="round"
-//       stroke-linejoin="round"
-//     >
-//       <path d="m18 15-6-6-6 6" />
-//     </svg>
-//     <svg
-//       className="hs-accordion-active:hidden ms-auto block size-4"
-//       xmlns="http://www.w3.org/2000/svg"
-//       width="24"
-//       height="24"
-//       viewBox="0 0 24 24"
-//       fill="none"
-//       stroke="currentColor"
-//       strokeWidth="2"
-//       stroke-linecap="round"
-//       stroke-linejoin="round"
-//     >
-//       <path d="m6 9 6 6 6-6" />
-//     </svg>
-//   </button>
-
-//   <div
-//     id="users-accordion-child"
-//     className="hs-accordion-content w-full overflow-hidden transition-[height] duration-300 hidden"
-//     role="region"
-//     aria-labelledby="users-accordion"
-//   >
-//     <ul
-//       className="hs-accordion-group ps-8 pt-1 space-y-1"
-//       data-hs-accordion-always-open
-//     >
-//       <li className="hs-accordion" id="users-accordion-sub-1">
-//         <button
-//           type="button"
-//           className="hs-accordion-toggle w-full text-start flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-white rounded-lg hover:bg-white/10 focus:outline-none focus:bg-white/10"
-//           aria-expanded="true"
-//           aria-controls="users-accordion-sub-1-child"
-//         >
-//           Sub Menu 1
-//           <svg
-//             className="hs-accordion-active:block ms-auto hidden size-4"
-//             xmlns="http://www.w3.org/2000/svg"
-//             width="24"
-//             height="24"
-//             viewBox="0 0 24 24"
-//             fill="none"
-//             stroke="currentColor"
-//             strokeWidth="2"
-//             stroke-linecap="round"
-//             stroke-linejoin="round"
-//           >
-//             <path d="m18 15-6-6-6 6" />
-//           </svg>
-//           <svg
-//             className="hs-accordion-active:hidden ms-auto block size-4"
-//             xmlns="http://www.w3.org/2000/svg"
-//             width="24"
-//             height="24"
-//             viewBox="0 0 24 24"
-//             fill="none"
-//             stroke="currentColor"
-//             strokeWidth="2"
-//             stroke-linecap="round"
-//             stroke-linejoin="round"
-//           >
-//             <path d="m6 9 6 6 6-6" />
-//           </svg>
-//         </button>
-
-//         <div
-//           id="users-accordion-sub-1-child"
-//           className="hs-accordion-content w-full overflow-hidden transition-[height] duration-300 hidden"
-//           role="region"
-//           aria-labelledby="users-accordion-sub-1"
-//         >
-//           <ul className="pt-1 space-y-1">
-//             <li>
-//               <a
-//                 className="flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-white rounded-lg hover:bg-white/10 focus:outline-none focus:bg-white/10 dark:bg-neutral-800 dark:text-neutral-400 dark:hover:text-neutral-300 dark:focus:text-neutral-300"
-//                 href="#"
-//               >
-//                 Link 1
-//               </a>
-//             </li>
-//             <li>
-//               <a
-//                 className="flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-white rounded-lg hover:bg-white/10 focus:outline-none focus:bg-white/10 dark:bg-neutral-800 dark:text-neutral-400 dark:hover:text-neutral-300 dark:focus:text-neutral-300"
-//                 href="#"
-//               >
-//                 Link 2
-//               </a>
-//             </li>
-//             <li>
-//               <a
-//                 className="flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-white rounded-lg hover:bg-white/10 focus:outline-none focus:bg-white/10 dark:bg-neutral-800 dark:text-neutral-400 dark:hover:text-neutral-300 dark:focus:text-neutral-300"
-//                 href="#"
-//               >
-//                 Link 3
-//               </a>
-//             </li>
-//           </ul>
-//         </div>
-//       </li>
-//       <li className="hs-accordion" id="users-accordion-sub-2">
-//         <button
-//           type="button"
-//           className="hs-accordion-toggle w-full text-start flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-white rounded-lg hover:bg-white/10 focus:outline-none focus:bg-white/10"
-//           aria-expanded="true"
-//           aria-controls="users-accordion-sub-2-child"
-//         >
-//           Sub Menu 2
-//           <svg
-//             className="hs-accordion-active:block ms-auto hidden size-4"
-//             xmlns="http://www.w3.org/2000/svg"
-//             width="24"
-//             height="24"
-//             viewBox="0 0 24 24"
-//             fill="none"
-//             stroke="currentColor"
-//             strokeWidth="2"
-//             stroke-linecap="round"
-//             stroke-linejoin="round"
-//           >
-//             <path d="m18 15-6-6-6 6" />
-//           </svg>
-//           <svg
-//             className="hs-accordion-active:hidden ms-auto block size-4"
-//             xmlns="http://www.w3.org/2000/svg"
-//             width="24"
-//             height="24"
-//             viewBox="0 0 24 24"
-//             fill="none"
-//             stroke="currentColor"
-//             strokeWidth="2"
-//             stroke-linecap="round"
-//             stroke-linejoin="round"
-//           >
-//             <path d="m6 9 6 6 6-6" />
-//           </svg>
-//         </button>
-
-//         <div
-//           id="users-accordion-sub-2-child"
-//           className="hs-accordion-content w-full overflow-hidden transition-[height] duration-300 hidden"
-//           role="region"
-//           aria-labelledby="users-accordion-sub-2"
-//         >
-//           <ul className="pt-1 space-y-1">
-//             <li>
-//               <a
-//                 className="flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-white rounded-lg hover:bg-white/10 focus:outline-none focus:bg-white/10 dark:bg-neutral-800 dark:text-neutral-400 dark:hover:text-neutral-300 dark:focus:text-neutral-300"
-//                 href="#"
-//               >
-//                 Link 1
-//               </a>
-//             </li>
-//             <li>
-//               <a
-//                 className="flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-white rounded-lg hover:bg-white/10 focus:outline-none focus:bg-white/10 dark:bg-neutral-800 dark:text-neutral-400 dark:hover:text-neutral-300 dark:focus:text-neutral-300"
-//                 href="#"
-//               >
-//                 Link 2
-//               </a>
-//             </li>
-//             <li>
-//               <a
-//                 className="flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-white rounded-lg hover:bg-white/10 focus:outline-none focus:bg-white/10 dark:bg-neutral-800 dark:text-neutral-400 dark:hover:text-neutral-300 dark:focus:text-neutral-300"
-//                 href="#"
-//               >
-//                 Link 3
-//               </a>
-//             </li>
-//           </ul>
-//         </div>
-//       </li>
-//     </ul>
-//   </div>
-// </li>;

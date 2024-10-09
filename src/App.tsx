@@ -24,9 +24,11 @@ import Payment from "./Pages/Admin/Payment";
 import UserMgtPage from "./Pages/Admin/UserMgt";
 import ForgetPassword from "./Pages/Auth/ForgetPassword";
 import AdminDashboard from "./Pages/Admin/AdminDashboard";
-import CategoryList from "./Pages/Admin/CategoryList";
+import CategoryList from "./Pages/Admin/Category/CategoryList";
 import ResetPassword from "./Pages/Auth/ResetPassword";
 import MenuCreateForm from "./Pages/Dashborad/CreateMenu";
+import AdminMenuCategory from "./Pages/Admin/Category/AdminMenuCategory";
+import MenuCategoryCreateForm from "./components/AdminDashboard/MenuCategoryCreateForm";
 
 const DashboardLayout = () => {
   const location = useLocation();
@@ -61,9 +63,10 @@ const AdminDashboardLayout = () => {
     <div>
       {/* <!-- ========== HEADER ========== --> */}
       <DashboardNavbar />
-      {/* <!-- ========== END HEADER ========== --> */}
 
       <AdminDashboradSidebar />
+      {/* <DashboardSidbar /> */}
+
       {/* <!-- ========== MAIN CONTENT ========== --> */}
       <div className="w-full lg:ps-64">
         <div className="p-4 sm:p-6 space-y-4 sm:space-y-6">
@@ -71,6 +74,7 @@ const AdminDashboardLayout = () => {
           <Outlet />
         </div>
       </div>
+      {/* <!-- ========== MAIN CONTENT END ========== --> */}
     </div>
   );
 };
@@ -132,7 +136,12 @@ const App = () => {
           <Route path="users/:id" element={<Payment />} />
           <Route path="vendors" element={<DashboardPage />} />
           <Route path="vendors/:id" element={<VendorDetailPage />} />
-          <Route path="category/list" element={<CategoryList />} />
+          <Route path="category/business" element={<CategoryList />} />
+          <Route path="category/menu" element={<AdminMenuCategory />} />
+          <Route
+            path="category/menu/create"
+            element={<MenuCategoryCreateForm />}
+          />
         </Route>
         <Route path="*" element={<h1>Not found</h1>} />
       </Routes>

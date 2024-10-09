@@ -15,13 +15,14 @@ const AuthProvider = ({ children }) => {
         const response = await axios.post("/v1/users/me");
         setUser(response.data);
         setIsLoading(false);
-        console.log("finsh", user);
+        console.log(response.data);
       } catch (error) {
         console.error(error);
         setIsLoading(false);
       }
     };
     fetchData();
+    console.log("finsh", user);
   }, []);
 
   const login = async (response) => {

@@ -166,8 +166,8 @@ const UsersTable = () => {
                         fill="none"
                         stroke="currentColor"
                         strokeWidth="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
                       >
                         <circle cx="11" cy="11" r="8" />
                         <path d="m21 21-4.3-4.3" />
@@ -202,8 +202,8 @@ const UsersTable = () => {
                         fill="none"
                         stroke="currentColor"
                         strokeWidth="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
                       >
                         <path d="M5 12h14" />
                         <path d="M12 5v14" />
@@ -279,9 +279,9 @@ const UsersTable = () => {
                 </thead>
 
                 <tbody className="divide-y divide-gray-200 dark:divide-neutral-700">
-                  {users?.map((user) => {
+                  {users?.map((user, index: any) => {
                     return (
-                      <tr>
+                      <tr key={index}>
                         <td className="size-px whitespace-nowrap">
                           <div className="ps-6 py-3">
                             <label
@@ -413,6 +413,17 @@ const UsersTable = () => {
                   </p>
                 </div>
 
+                {/* <div className="max-w-sm space-y-3">
+                  <select className="py-2 px-3 pe-9 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-neutral-700 dark:border-neutral-700 dark:text-neutral-400">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option selected>9</option>
+                    <option>20</option>
+                  </select>
+                </div> */}
+
                 <div>
                   {pagination && (
                     <div className="inline-flex gap-x-2">
@@ -432,8 +443,8 @@ const UsersTable = () => {
                             fill="none"
                             stroke="currentColor"
                             strokeWidth="2"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
                           >
                             <path d="m15 18-6-6 6-6" />
                           </svg>
@@ -455,8 +466,8 @@ const UsersTable = () => {
                             fill="none"
                             stroke="currentColor"
                             strokeWidth="2"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
                           >
                             <path d="m9 18 6-6-6-6" />
                           </svg>

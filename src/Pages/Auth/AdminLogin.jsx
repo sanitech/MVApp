@@ -1,15 +1,7 @@
 import React, { useContext, useState } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
-import {
-  signInWithPopup,
-  GoogleAuthProvider,
-  signInWithRedirect,
-  createUserWithEmailAndPassword,
-  PhoneAuthProvider,
-  signInWithPhoneNumber,
-} from "firebase/auth";
-import { getAuthInstance } from "./firebase";
+
 import { AuthContext } from "../../context/AuthProvider";
 
 function AdminLoginPage() {
@@ -19,7 +11,6 @@ function AdminLoginPage() {
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
-  const authInstance = getAuthInstance(); // Call getAuthInstance and store the result
   const { login } = useContext(AuthContext);
   const handleLogin = async (e) => {
     e.preventDefault();

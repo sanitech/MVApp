@@ -1,15 +1,6 @@
 import React, { useContext, useState } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
-import {
-  signInWithPopup,
-  GoogleAuthProvider,
-  signInWithRedirect,
-  createUserWithEmailAndPassword,
-  PhoneAuthProvider,
-  signInWithPhoneNumber,
-} from "firebase/auth";
-import { getAuthInstance } from "./firebase";
 import { AuthContext } from "../../context/AuthProvider";
 
 function LoginPage() {
@@ -19,8 +10,8 @@ function LoginPage() {
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
-  const authInstance = getAuthInstance(); // Call getAuthInstance and store the result
   const { login } = useContext(AuthContext);
+  
   const handleLogin = async (e) => {
     e.preventDefault();
     setError(null);
@@ -119,7 +110,7 @@ function LoginPage() {
                     </label>
                     <Link
                       class="inline-flex items-center gap-x-1 text-sm text-blue-600 decoration-2 hover:underline focus:outline-none focus:underline font-medium dark:text-blue-500"
-                      to={'/auth/forget-password'}
+                      to={"/auth/forget-password"}
                     >
                       Forgot password?
                     </Link>

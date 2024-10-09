@@ -22,7 +22,7 @@ const MenuCategoryCard = (
 
   return (
     <>
-      <div className="card shadow-md bg-slate-100 px-4 py-4 cursor-pointer relative">
+      <div className="card shadow-md bg-slate-100 px-2 py-4 cursor-pointer relative w-28">
         <img
           className="size-7"
           src="https://th.bing.com/th/id/R.a3bbc1907945ec724e78991fb9b42e1f?rik=eAP20UMj8H9eOA&riu=http%3a%2f%2ficons.iconarchive.com%2ficons%2fpixelkit%2ftasty-bites%2f512%2fhamburger-icon.png&ehk=WM9MLiuIKJeTHIjfDi1e3sBNDWtPrAxUYiqCN0qt8iI%3d&risl=&pid=ImgRaw&r=0"
@@ -31,7 +31,7 @@ const MenuCategoryCard = (
         <div className="text-sm text-slate-400 my-1 line-clamp-1">
           {category.category_name}
         </div>
-        <div className="text-base font-medium text-slate-500  whitespace-nowrap ">
+        <div className="text-xs font-medium text-slate-500  whitespace-nowrap ">
           {category.menuItemCount} items
         </div>
         <div className="absolute top-[-10px] right-0 left-0 flex justify-between ">
@@ -52,7 +52,7 @@ const MenuCategoryCard = (
             >
               <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" />
               <path
-                fill-rule="evenodd"
+                fillRule="evenodd"
                 d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5z"
               />
             </svg>
@@ -112,8 +112,8 @@ const MenuCategoryCard = (
                       fill="none"
                       stroke="currentColor"
                       strokeWidth="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
                     >
                       <path d="M18 6 6 18" />
                       <path d="m6 6 12 12" />

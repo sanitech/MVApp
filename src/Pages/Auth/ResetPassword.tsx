@@ -54,8 +54,8 @@ const ResetPassword = () => {
                         fill="none"
                         stroke="currentColor"
                         strokeWidth="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
                       >
                         <path
                           className="hs-password-active:hidden"
@@ -123,8 +123,8 @@ const ResetPassword = () => {
                         fill="none"
                         stroke="currentColor"
                         strokeWidth="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
                       >
                         <path
                           className="hs-password-active:hidden"

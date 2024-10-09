@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import Toasts from "../../components/Toasts";
-import CategoryTree from "../../components/AdminDashboard/CategoryTree";
+import Toasts from "../../../components/Toasts";
+import CategoryTree from "../../../components/AdminDashboard/CategoryTree";
 
 interface BusinessProps {
   business_type_id: string;
@@ -20,7 +20,7 @@ interface CategoryListProps {
   business_type_id: string;
   category_name: string;
   description: string;
-  business_type_name:string
+  business_type_name: string;
 }
 
 interface CategoryProps {

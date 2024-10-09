@@ -18,8 +18,8 @@ export const FormWrapper = ({ title, children }: FormWrapperProps) => {
           fill="none"
           stroke="currentColor"
           strokeWidth="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeLinecap="round"
+          strokeLinejoin="round"
           className="feather feather-layers"
         >
           <polygon points="12 2 2 7 12 12 22 7 12 2" />
