@@ -4,6 +4,7 @@ import MenuCard from "../../components/VendorDashboard/Menu/MenuCard";
 import MenuCategoryCardAdd from "../../components/VendorDashboard/Menu/MenuCategoryAdd";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import DeleteConformation from "../../components/AdminDashboard/DeleteConformation";
 
 type categoryProps = {
   category_id: string;
@@ -67,29 +68,10 @@ const VendorMenu = () => {
     }
   };
 
-  const handleDeleteMenu = async () => {
-    console.log(deletedMenuId);
-    if (deletedMenuId) {
-      setLoading(true);
-      try {
-        await axios.delete(`/v1/menus/${deletedMenuId}`);
-        setMenu(menu.filter((menu) => menu.item_id !== deletedMenuId));
-        setDeletedMenuId(null);
-        setError(null); // Clear any existing errors on successful delete
-      } catch (error) {
-        setError("Error deleting menu item");
-      } finally {
-        setLoading(false);
-      }
-    }
-  };
-
   useEffect(() => {
     fetchCategory();
     fetchMenu();
   }, []);
-
-  console.log("s",menu);
 
   return (
     <div className="p-8 bg-white rounded-xl shadow">
@@ -131,15 +113,13 @@ const VendorMenu = () => {
             <MenuCard
               menu={menu}
               key={menu.item_id}
-              onDelete={() => setDeletedMenuId(menu.item_id)}
+              onDeleteFetchMenu={() => fetchMenu()}
             />
           ))
         ) : (
           <p>No menu items available</p> // Handle case when menu is empty
         )}
       </div>
-
-      {/* Error message */}
     </div>
   );
 };

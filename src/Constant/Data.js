@@ -461,7 +461,7 @@ export const dashboardLink = [
       </svg>
     ),
     list: [
-      { link: "", item: "Manage room" },
+      { link: "/dashboard/rooms", item: "Manage room" },
       { link: "", item: "Set room prices and availability" },
       { link: "", item: "Manage room categories" },
       { link: "", item: "Room occupancy status and bookings" },
@@ -561,7 +561,7 @@ export const nutritionalIcon = (
     id="Layer_1"
     viewBox="0 0 511.999 511.999"
   >
-    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+    <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
     <g
       id="SVGRepo_tracerCarrier"
       stroke-linecap="round"

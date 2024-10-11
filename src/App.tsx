@@ -29,6 +29,37 @@ import ResetPassword from "./Pages/Auth/ResetPassword";
 import MenuCreateForm from "./Pages/Dashborad/CreateMenu";
 import AdminMenuCategory from "./Pages/Admin/Category/AdminMenuCategory";
 import MenuCategoryCreateForm from "./components/AdminDashboard/MenuCategoryCreateForm";
+import InterestsCheckbox from "./Pages/Dashborad/CreateMenu";
+
+const AdminDashboardLayout = () => {
+  const location = useLocation();
+
+  useLayoutEffect(() => {
+    // Re-initialize Preline when the route changes
+    if (window.HSStaticMethods) {
+      window.HSStaticMethods.autoInit();
+    }
+  }, [location]); // Re-run the effect when the route changes
+
+  return (
+    <div>
+      {/* <!-- ========== HEADER ========== --> */}
+      <DashboardNavbar />
+
+      <AdminDashboradSidebar />
+      {/* <DashboardSidbar /> */}
+
+      {/* <!-- ========== MAIN CONTENT ========== --> */}
+      <div className="w-full lg:ps-64">
+        <div className="p-4 sm:p-6 space-y-4 sm:space-y-6">
+          {" "}
+          <Outlet />
+        </div>
+      </div>
+      {/* <!-- ========== MAIN CONTENT END ========== --> */}
+    </div>
+  );
+};
 
 const DashboardLayout = () => {
   const location = useLocation();
@@ -58,27 +89,6 @@ const DashboardLayout = () => {
   );
 };
 
-const AdminDashboardLayout = () => {
-  return (
-    <div>
-      {/* <!-- ========== HEADER ========== --> */}
-      <DashboardNavbar />
-
-      <AdminDashboradSidebar />
-      {/* <DashboardSidbar /> */}
-
-      {/* <!-- ========== MAIN CONTENT ========== --> */}
-      <div className="w-full lg:ps-64">
-        <div className="p-4 sm:p-6 space-y-4 sm:space-y-6">
-          {" "}
-          <Outlet />
-        </div>
-      </div>
-      {/* <!-- ========== MAIN CONTENT END ========== --> */}
-    </div>
-  );
-};
-
 const PageLayout = () => {
   return (
     <div>
@@ -89,8 +99,17 @@ const PageLayout = () => {
     </div>
   );
 };
+
 const App = () => {
-  const [isLogin, setIsLogin] = useState(false);
+  const location = useLocation();
+
+  useLayoutEffect(() => {
+    // Re-initialize Preline when the route changes
+    if (window.HSStaticMethods) {
+      window.HSStaticMethods.autoInit();
+    }
+  }, [location]); // Re-run the effect when the route changes
+
   return (
     <AuthProvider>
       <Routes>
@@ -114,11 +133,12 @@ const App = () => {
           <Route path="menu" element={<VendorMenu />} />
           <Route path="menu/:id" element={<VendorMenu />} />
           <Route path="menu/create" element={<MenuCreate />} />
-          <Route path="menu/create/sample" element={<MenuCreateForm />} />
+          <Route path="menu/create/sample" element={<InterestsCheckbox />} />
           <Route path="menu/edit/:id" element={<MenuEdit />} />
           <Route path="menu/delete/:id" element={<VendorMenu />} />
           <Route path="orders" element={<VendorOrder />} />
           <Route path="vendor/:id" element={<VendorDetailPage />} />
+          <Route path="rooms" element={<AdminMenuCategory />} />
         </Route>
 
         <Route

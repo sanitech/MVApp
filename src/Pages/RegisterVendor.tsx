@@ -157,7 +157,7 @@ const RegisterVendor = () => {
 
     try {
       console.log(data);
-      const response = await axios.post("/api/v1/vendor/register", data, {
+      const response = await axios.post("/v1/vendor/register", data, {
         headers: {
           "Content-Type": "multipart/form-data",
         },

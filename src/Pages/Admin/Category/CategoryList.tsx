@@ -19,7 +19,7 @@ interface CategoryListProps {
   global_category_id: string;
   business_type_id: string;
   category_name: string;
-  description: string;
+  icon: string;
   business_type_name: string;
 }
 
@@ -133,9 +133,9 @@ const CategoryList = () => {
     console.log(category);
   }, []);
 
-  // console.log("busin1", Object.keys(category.businessCategory));
-  console.log("busin", category.businessCategory);
-  // console.log("busin", categoryLists);
+  const [editedCategories, setEditedCategory] = useState(null);
+
+  // console.log("busin", category.businessCategory);
   return (
     <div className="bg-white dark:bg-gray-800 py-5 px-8 rounded-lg ">
       <div className="flex flex-row justify-between item-center">
@@ -200,6 +200,7 @@ const CategoryList = () => {
               categoryList={category.global}
               title={"Global Categories"}
               fetchCategoryType={fetchCategoryType} // Add this prop
+              // editCategory={() => setEditedCategory()}
             />
           </div>
         )}
@@ -210,6 +211,7 @@ const CategoryList = () => {
               categoryList={category.businessCategory}
               title={"Business Categories"}
               fetchCategoryType={fetchCategoryType} // Add this prop
+              // editCategory={() => setEditedCategory()}
             />
           </div>
         )}

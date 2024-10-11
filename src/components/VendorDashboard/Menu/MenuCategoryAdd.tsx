@@ -46,9 +46,9 @@ const MenuCategoryCardAdd = () => {
 
   return (
     <div className="card shadow-md bg-slate-100  ml-3 cursor-pointer hover:bg-slate-200">
-      {/* <button
-        className="flex justify-center items-center h-[100%] px-4 py-4"
+      <button
         type="button"
+        className="flex justify-center items-center h-[100%] px-4 py-4"
         aria-haspopup="dialog"
         aria-expanded="false"
         aria-controls="hs-slide-up-animation-modal"
@@ -66,32 +66,13 @@ const MenuCategoryCardAdd = () => {
             d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2"
           />
         </svg>
-      </button> */}
-
-      <button
-        type="button"
-        className="flex justify-center items-center h-[100%] px-4 py-4"
-        aria-haspopup="dialog"
-        aria-expanded="false"
-        aria-controls="hs-slide-up-animation-modal"
-        data-hs-overlay="#hs-slide-up-animation-modal"
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          fill="currentColor"
-          className="bi bi-plus-lg size-10 text-gray-900"
-          viewBox="0 0 16 16"
-        >
-          <path
-            fillRule="evenodd"
-            d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2"
-          />
-        </svg>
       </button>
 
       <div
         id="hs-slide-up-animation-modal"
-        className="hs-overlay hidden size-full fixed top-0 start-0 z-[80] overflow-x-hidden overflow-y-auto pointer-events-none"
+        className={`hs-overlay ${
+          isModalOpen ? "" : "hidden"
+        } size-full fixed top-0 start-0 z-[80] overflow-x-hidden overflow-y-auto pointer-events-none`}
         role="dialog"
         aria-labelledby="hs-slide-up-animation-modal-label"
       >
@@ -119,7 +100,7 @@ const MenuCategoryCardAdd = () => {
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke="currentColor"
-                  stroke-width="2"
+                  strokeWidth="2"
                   stroke-linecap="round"
                   stroke-linejoin="round"
                 >
@@ -128,8 +109,8 @@ const MenuCategoryCardAdd = () => {
                 </svg>
               </button>
             </div>
-            <div className="p-4 overflow-y-auto">
-              <form onSubmit={createCategoryHandler}>
+            <form onSubmit={createCategoryHandler}>
+              <div className="p-4 overflow-y-auto">
                 <div className="grid gap-y-4">
                   {/* <!-- Form Group --> */}
                   <div>
@@ -213,23 +194,23 @@ const MenuCategoryCardAdd = () => {
                     </p>
                   )}
                 </div>
-              </form>
-            </div>
-            <div className="flex justify-end items-center gap-x-2 py-3 px-4 border-t dark:border-neutral-700">
-              <button
-                type="button"
-                className="hs-dropup-toggle py-2 px-3 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 focus:outline-none focus:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-800 dark:border-neutral-700 dark:text-white dark:hover:bg-neutral-700 dark:focus:bg-neutral-700"
-                data-hs-overlay="#hs-slide-up-animation-modal"
-              >
-                Close
-              </button>
-              <button
-                type="submit"
-                className="py-2 px-3 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent bg-gray-900 text-white hover:bg-blue-700 focus:outline-none focus:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none"
-              >
-                Save changes
-              </button>
-            </div>
+              </div>
+              <div className="flex justify-end items-center gap-x-2 py-3 px-4 border-t dark:border-neutral-700">
+                <button
+                  type="button"
+                  className="hs-dropup-toggle py-2 px-3 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 focus:outline-none focus:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-800 dark:border-neutral-700 dark:text-white dark:hover:bg-neutral-700 dark:focus:bg-neutral-700"
+                  data-hs-overlay="#hs-slide-up-animation-modal"
+                >
+                  Close
+                </button>
+                <button
+                  type="submit"
+                  className="py-2 px-3 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent bg-gray-900 text-white hover:bg-blue-700 focus:outline-none focus:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none"
+                >
+                  Save changes
+                </button>
+              </div>
+            </form>
           </div>
         </div>
       </div>
@@ -273,7 +254,7 @@ export default MenuCategoryCardAdd;
 //               viewBox="0 0 24 24"
 //               fill="none"
 //               stroke="currentColor"
-//               stroke-width="2"
+//               strokeWidth="2"
 //               strokeLinecap="round"
 //               strokeLinejoin="round"
 //             >

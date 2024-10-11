@@ -112,7 +112,9 @@ const MenuCreate = () => {
   const fetchCategory = async () => {
     setLoading(true);
     try {
-      const response = await axios.get("/v1/menu/category");
+      const response = await axios.get(
+        `/v1/menu/category/vendor/${user.vendor_id}`
+      );
       setCategory(response.data);
       // setError({});
     } catch (error) {
@@ -162,64 +164,6 @@ const MenuCreate = () => {
       }));
     }
   };
-
-  //   // let errors = {
-  //   //   category: "",
-  //   //   item: "",
-  //   //   price: "",
-  //   //   image: "",
-  //   //   description: "",
-  //   //   nutritional: {},
-  //   //   availability: {},
-  //   //   successMessage: "",
-  //   // };
-
-  //   // Category validation
-  //   if (!formData.category_id) {
-  //     // errors.category = "Category is required";
-  //   }
-
-  //   // Item name validation
-  //   if (!formData.item) {
-  //     errors.item = "Item name is required";
-  //   } else if (formData.item.length < 3) {
-  //     errors.item = "Item name must be at least 3 characters long";
-  //   }
-
-  //   // Price validation
-  //   if (!formData.price) {
-  //     errors.price = "Price is required";
-  //   } else if (isNaN(formData.price)) {
-  //     errors.price = "Price must be a number";
-  //   } else if (formData.price <= 0) {
-  //     errors.price = "Price must be greater than 0";
-  //   }
-
-  //   // Image validation
-  //   if (!formData.image_url) {
-  //     errors.image = "Image is required";
-  //   } else if (formData.image_url.size > 2 * 1024 * 1024) {
-  //     errors.image = "Image size must be less than 2 MB";
-  //   }
-
-  //   // Description validation
-  //   if (!formData.description) {
-  //     errors.description = "Description is required";
-  //   } else if (formData.description.length < 10) {
-  //     errors.description = "Description must be at least 10 characters long";
-  //   }
-
-  //   // Availability validation
-  //   if (availability.days.length === 0) {
-  //     errors.availability =
-  //       "At least one day must be selected for availability";
-  //   } else if (!availability.startTime || !availability.endTime) {
-  //     errors.availability = "Start and end time are required for availability";
-  //   }
-
-  //   setError(errors);
-  //   return errors;
-  // }
 
   // Create menu function
   const handleMenuCreate = async (e: React.FormEvent<HTMLFormElement>) => {

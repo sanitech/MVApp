@@ -48,33 +48,35 @@ function AdminLoginPage() {
   };
   return (
     <div className="h-full w-[30rem] m-auto">
-      <div class="mt-7 bg-white border border-gray-200 rounded-xl shadow-sm ">
-        <div class="p-4 sm:p-7">
-          <div class="text-center">
-            <h1 class="block text-2xl font-bold text-gray-800 ">Admin Login</h1>
+      <div className="mt-7 bg-white border border-gray-200 rounded-xl shadow-sm ">
+        <div className="p-4 sm:p-7">
+          <div className="text-center">
+            <h1 className="block text-2xl font-bold text-gray-800 ">
+              Admin Login
+            </h1>
           </div>
 
-          <div class="mt-5">
+          <div className="mt-5">
             <form onSubmit={handleLogin}>
-              <div class="grid gap-y-4">
+              <div className="grid gap-y-4">
                 <div>
-                  <label htmlFor="email" class="block text-sm mb-2 ">
+                  <label htmlFor="email" className="block text-sm mb-2 ">
                     Email address
                   </label>
-                  <div class="relative">
+                  <div className="relative">
                     <input
                       type="text"
                       id="email"
                       name="email"
-                      class="py-3 px-4 block w-full border-gray-200 border-2 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none   dark:placeholder-neutral-500 dark:focus:ring-neutral-600"
+                      className="py-3 px-4 block w-full border-gray-200 border-2 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none   dark:placeholder-neutral-500 dark:focus:ring-neutral-600"
                       required
                       aria-describedby="email-error"
                       onInput={(e) => setUsername(e.target.value)}
                       value={username}
                     />
-                    <div class="hidden absolute inset-y-0 end-0 pointer-events-none pe-3">
+                    <div className="hidden absolute inset-y-0 end-0 pointer-events-none pe-3">
                       <svg
-                        class="size-5 text-red-500"
+                        className="size-5 text-red-500"
                         width="16"
                         height="16"
                         fill="currentColor"
@@ -85,30 +87,33 @@ function AdminLoginPage() {
                       </svg>
                     </div>
                   </div>
-                  <p class="hidden text-xs text-red-600 mt-2" id="email-error">
+                  <p
+                    className="hidden text-xs text-red-600 mt-2"
+                    id="email-error"
+                  >
                     Please include a valid email address so we can get back to
                     you
                   </p>
                 </div>
 
                 <div>
-                  <label htmlFor="password" class="block text-sm mb-2 ">
+                  <label htmlFor="password" className="block text-sm mb-2 ">
                     Password
                   </label>
-                  <div class="relative">
+                  <div className="relative">
                     <input
                       type="password"
                       id="password"
                       name="password"
-                      class="py-3 px-4 block w-full border-gray-200 border-2 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none   dark:placeholder-neutral-500 dark:focus:ring-neutral-600"
+                      className="py-3 px-4 block w-full border-gray-200 border-2 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none   dark:placeholder-neutral-500 dark:focus:ring-neutral-600"
                       required
                       aria-describedby="password-error"
                       onInput={(e) => setPassword(e.target.value)}
                       value={password}
                     />
-                    <div class="hidden absolute inset-y-0 end-0 pointer-events-none pe-3">
+                    <div className="hidden absolute inset-y-0 end-0 pointer-events-none pe-3">
                       <svg
-                        class="size-5 text-red-500"
+                        className="size-5 text-red-500"
                         width="16"
                         height="16"
                         fill="currentColor"
@@ -120,16 +125,19 @@ function AdminLoginPage() {
                     </div>
                   </div>
                   {error && (
-                    <p class=" text-xs text-red-600 mt-2" id="password-error">
+                    <p
+                      className=" text-xs text-red-600 mt-2"
+                      id="password-error"
+                    >
                       {error}
                     </p>
                   )}
                 </div>
 
-                <div class="flex justify-center">
+                <div className="flex justify-center">
                   <button
                     type="submit"
-                    class="w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 focus:outline-none focus:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none"
+                    className="w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 focus:outline-none focus:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none"
                     disabled={isLoading}
                   >
                     {isLoading ? "Signing in..." : "Sign in"}

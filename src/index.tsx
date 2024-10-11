@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useLayoutEffect } from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
@@ -20,6 +20,7 @@ declare global {
     };
   }
 }
+
 
 // const PUBLISHABLE_KEY =
 //   "pk_test_c2FjcmVkLWJ1bGxkb2ctMjAuY2xlcmsuYWNjb3VudHMuZGV2JA";
