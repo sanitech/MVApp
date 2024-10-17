@@ -1,11 +1,153 @@
-import React, { useState } from "react";
-import ProfileSettings from "../../components/ProfileSetting";
-import BranchCard from "../../components/profile/BranchCard";
+import React, { useEffect, useState } from "react";
+import BranchCard from "../../../components/profile/BranchCard";
+import axios from "axios";
+import {
+  FaFacebookF,
+  FaInstagram,
+  FaLinkedinIn,
+  FaTwitter,
+} from "react-icons/fa";
+type checkInProps = {
+  day_of_week: string | null;
+  checkin_time: string | null;
+  checkout_time: string | null;
+};
 
+type SocialMediaProps = {
+  social_media_platform: string | null;
+  social_media_url: string | null;
+};
+
+type BranchProps = {
+  branch_address: string | null;
+  branch_city: string | null;
+  branch_state: string | null;
+  branch_country: string | null;
+  branch_zipcode: string | null;
+  branch_region: string | null;
+  phone_number: string[];
+  branch_latitude: string | null;
+  branch_longitude: string | null;
+};
+
+type PropertyProps = {
+  image_url: string;
+  image_order: number;
+};
+
+type VendorProps = {
+  vendor_id: string;
+  vendor_name: string;
+  vendor_description: string;
+  vendor_logo: string;
+  vendor_email: string;
+  vendor_website: string;
+  meal_price_range: string | null;
+  reservation_required: number;
+  dietary_options: string | null;
+  pet_friendly: boolean;
+  vendor_type: string;
+  branch: number;
+  amenities: string | null;
+  average_room_price: string | null;
+  max_capacity: number;
+  tin_number: number;
+  license_image: string;
+  vendor_rating: string | null;
+  check_in_time: checkInProps[];
+  vendor_social_media: SocialMediaProps[];
+  branches: BranchProps[];
+  property_images: PropertyProps[];
+};
 const BusinessProfilePage = () => {
+  const [vendor, setVendor] = useState<VendorProps>({
+    vendor_id: "86933166-870b-11ef-a3d2-80e82caf895d",
+    vendor_name: "Hawi Hotel",
+    vendor_description: "Luxury hotel chain ababe",
+    vendor_logo: "http://localhost:5000/images/photo_2023-12-05_14-56-55.jpg",
+    vendor_email: "Vangard22@example.com",
+    vendor_website: "https://www.ryh.com",
+    meal_price_range: null,
+    reservation_required: 0,
+    dietary_options: null,
+    pet_friendly: false,
+    vendor_type: "cafe",
+    branch: 1,
+    amenities: null,
+    average_room_price: null,
+    max_capacity: 0,
+    tin_number: 564729429,
+    license_image: "http://localhost:5000/images/photo_2023-12-05_14-56-55.jpg",
+    vendor_rating: null,
+    check_in_time: [
+      {
+        day_of_week: null,
+        checkin_time: null,
+        checkout_time: null,
+      },
+    ],
+    vendor_social_media: [
+      {
+        social_media_platform: null,
+        social_media_url: null,
+      },
+    ],
+    branches: [
+      {
+        branch_address: null,
+        branch_city: "",
+        branch_state: "",
+        branch_country: "",
+        branch_zipcode: "",
+        branch_region: "",
+        phone_number: [],
+        branch_latitude: null,
+        branch_longitude: null,
+      },
+    ],
+    property_images: [
+      {
+        image_url:
+          "http://localhost:5000/images/original-5dbb65728059350d6c3b96e2272f1b7f (1).jpg",
+        image_order: 3,
+      },
+      {
+        image_url:
+          "http://localhost:5000/images/original-866462c28c93b0adf9095d8444ebc68c.png",
+        image_order: 1,
+      },
+      {
+        image_url:
+          "http://localhost:5000/images/original-ed0fa68e0d59b22ca5ea06fe5746b176.png",
+        image_order: 2,
+      },
+    ],
+  });
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState("");
+  const user = JSON.parse(localStorage.getItem("userData") || "{}");
+
   const [logoPreview, setLogoPreview] = useState<string>(
     "https://preline.co/assets/img/160x160/img1.jpg"
   );
+
+  const fetchMyProfile = async () => {
+    setIsLoading(true);
+    try {
+      const response = await axios.get(`/v1/vendor/${user.vendor_id}`);
+      console.log(response.data);
+      setVendor(response.data);
+      setError(""); // Clear any existing errors on successful fetch
+    } catch (error) {
+      setError("Error fetching menu items");
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    fetchMyProfile();
+  });
   return (
     <div className=" mx-auto">
       <div className="bg-white rounded-xl shadow ">
@@ -25,8 +167,8 @@ const BusinessProfilePage = () => {
             <div className="sm:col-span-3 max-w-sm">
               <div className="flex items-center gap-5">
                 <img
-                  className="inline-block size-16 rounded-full ring-2 ring-white"
-                  src={logoPreview}
+                  className="inline-block size-16 rounded-full ring-2 ring-white object-cover"
+                  src={vendor.vendor_logo ? vendor.vendor_logo : logoPreview}
                   alt="Avatar"
                 />
                 <div className="flex gap-x-2">
@@ -110,15 +252,16 @@ const BusinessProfilePage = () => {
               <input
                 id="af-account-email"
                 type="text"
-                className="py-2 px-3 pe-11 block w-full border border-gray-200 shadow-sm text-sm rounded-lg focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none "
+                className="py-2 px-3 pe-11 block w-full border border-gray-200 shadow-sm text-sm rounded-lg focus:border-gray-500 focus:ring-gray-500 disabled:opacity-50 disabled:pointer-events-none "
                 placeholder="Hotel and Resonant"
+                value={vendor.vendor_name}
               />
             </div>
 
             <div className="col-span-2">
               <label
                 htmlFor="af-submit-app-category"
-                className="inline-block text-sm font-medium text-gray-800 mt-2.5"
+                className="inline-block text-sm text-gray-800 mt-2.5 "
               >
                 Business Type
               </label>
@@ -144,17 +287,14 @@ const BusinessProfilePage = () => {
             </div>
 
             <div className="col-span-3">
-              <select
-                id="af-submit-app-category"
-                className="py-2 px-3 pe-9 block w-full border-gray-200 shadow-sm rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none "
-              >
-                <option selected>Select a Type</option>
-                <option value={"restaurant"}>Restaurant</option>
-                <option value={"Hotel"}>Hotel </option>
-                <option value={"cafe"}>Cafe</option>
-                <option value={"Guest House"}>Guest House</option>
-                <option value={"Other"}>Other</option>
-              </select>
+              <input
+                id="af-account-full-name"
+                type="text"
+                className="py-2 px-3 pe-11 block w-full border disabled:bg-transparent border-gray-200 shadow-sm -mt-px -ms-px first:rounded-t-lg last:rounded-b-lg sm:first:rounded-s-lg sm:mt-0 sm:first:ms-0 sm:first:rounded-se-none sm:last:rounded-es-none sm:last:rounded-e-lg text-sm relative focus:z-10 focus:border-gray-500 focus:ring-gray-500 disabled:opacity-50 disabled:pointer-events-none "
+                placeholder="Maria"
+                disabled
+                value={vendor.vendor_type}
+              />
             </div>
 
             <div className="col-span-2">
@@ -190,12 +330,12 @@ const BusinessProfilePage = () => {
                 <input
                   id="af-account-full-name"
                   type="text"
-                  className="py-2 px-3 pe-11 block w-full border-gray-200 shadow-sm -mt-px -ms-px first:rounded-t-lg last:rounded-b-lg sm:first:rounded-s-lg sm:mt-0 sm:first:ms-0 sm:first:rounded-se-none sm:last:rounded-es-none sm:last:rounded-e-lg text-sm relative focus:z-10 focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none "
+                  className="py-2 px-3 pe-11 block w-full border-gray-200 shadow-sm -mt-px -ms-px first:rounded-t-lg last:rounded-b-lg sm:first:rounded-s-lg sm:mt-0 sm:first:ms-0 sm:first:rounded-se-none sm:last:rounded-es-none sm:last:rounded-e-lg text-sm relative focus:z-10 focus:border-gray-500 focus:ring-gray-500 disabled:opacity-50 disabled:pointer-events-none "
                   placeholder="Maria"
                 />
                 <input
                   type="text"
-                  className="py-2 px-3 pe-11 block w-full border-gray-200 shadow-sm -mt-px -ms-px first:rounded-t-lg last:rounded-b-lg sm:first:rounded-s-lg sm:mt-0 sm:first:ms-0 sm:first:rounded-se-none sm:last:rounded-es-none sm:last:rounded-e-lg text-sm relative focus:z-10 focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none "
+                  className="py-2 px-3 pe-11 block w-full border-gray-200 shadow-sm -mt-px -ms-px first:rounded-t-lg last:rounded-b-lg sm:first:rounded-s-lg sm:mt-0 sm:first:ms-0 sm:first:rounded-se-none sm:last:rounded-es-none sm:last:rounded-e-lg text-sm relative focus:z-10 focus:border-gray-500 focus:ring-gray-500 disabled:opacity-50 disabled:pointer-events-none "
                   placeholder="Boone"
                 />
               </div>
@@ -214,7 +354,7 @@ const BusinessProfilePage = () => {
               <input
                 id="af-account-email"
                 type="text"
-                className="py-2 px-3 pe-11 block w-full border border-gray-200 shadow-sm text-sm rounded-lg focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none "
+                className="py-2 px-3 pe-11 block w-full border border-gray-200 shadow-sm text-sm rounded-lg focus:border-gray-500 focus:ring-gray-500 disabled:opacity-50 disabled:pointer-events-none "
                 placeholder="Enter Email address"
               />
             </div>
@@ -231,8 +371,9 @@ const BusinessProfilePage = () => {
               <input
                 id="af-account-email"
                 type="text"
-                className="py-2 px-3 pe-11 block w-full border border-gray-200 shadow-sm text-sm rounded-lg focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none "
+                className="py-2 px-3 pe-11 block w-full border border-gray-200 shadow-sm text-sm rounded-lg focus:border-gray-500 focus:ring-gray-500 disabled:opacity-50 disabled:pointer-events-none "
                 placeholder="Enter Tin number"
+                value={vendor.tin_number}
               />
             </div>
 
@@ -252,11 +393,13 @@ const BusinessProfilePage = () => {
             <div className="col-span-3">
               <textarea
                 id="af-account-bio"
-                className="py-2 px-3 block w-full border border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none "
+                className="py-2 px-3 block w-full border border-gray-200 rounded-lg text-sm focus:border-gray-500 focus:ring-gray-500 disabled:opacity-50 disabled:pointer-events-none "
                 placeholder="Type your Business..."
-              ></textarea>
+              >
+                {vendor.vendor_description}
+              </textarea>
               <div className="mt-6 flex gap-4">
-                <button className="bg-blue-700 hover:bg-blue-600 border border-blue-700 text-white px-3 py-1 rounded-md">
+                <button className="bg-gray-900 hover:bg-gray-600 border border-gray-700 text-white px-3 py-1 rounded-md">
                   Save changes
                 </button>
                 <button className="border border-gray-200 text-gray-900 px-3 py-2 rounded-lg">
@@ -287,7 +430,7 @@ const BusinessProfilePage = () => {
               <input
                 id="af-account-email"
                 type="email"
-                className="py-2 px-3 pe-11 block w-full border border-gray-200 shadow-sm text-sm rounded-lg focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none "
+                className="py-2 px-3 pe-11 block w-full border border-gray-200 shadow-sm text-sm rounded-lg focus:border-gray-500 focus:ring-gray-500 disabled:opacity-50 disabled:pointer-events-none "
                 placeholder="Enter current password"
                 required
               />
@@ -309,7 +452,7 @@ const BusinessProfilePage = () => {
                 <input
                   id="af-account-password"
                   type="password"
-                  className="py-2 px-4 block w-full border border-gray-200 rounded-md text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none "
+                  className="py-2 px-4 block w-full border border-gray-200 rounded-md text-sm focus:border-gray-500 focus:ring-gray-500 disabled:opacity-50 disabled:pointer-events-none "
                   placeholder="Enter New password"
                   required
                 />
@@ -318,14 +461,14 @@ const BusinessProfilePage = () => {
                     <input
                       type="password"
                       id="hs-strong-password-with-minLength"
-                      className="py-2 px-4 block w-full border border-gray-200 rounded-md text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none "
+                      className="py-2 px-4 block w-full border border-gray-200 rounded-md text-sm focus:border-gray-500 focus:ring-gray-500 disabled:opacity-50 disabled:pointer-events-none "
                       placeholder="Enter password"
                     />
                     <div
                       id="hs-strong-password-minLength"
                       data-hs-strong-password='{
                         "target": "#hs-strong-password-with-minLength",
-                        "stripClasses": "hs-strong-password:opacity-100 hs-strong-password-accepted:bg-teal-500 h-2 flex-auto rounded-full bg-blue-500 opacity-50 mx-1",
+                        "stripClasses": "hs-strong-password:opacity-100 hs-strong-password-accepted:bg-teal-500 h-2 flex-auto rounded-full bg-gray-900 opacity-50 mx-1",
                         "minLength": "8"
                       }'
                       className="flex mt-2 -mx-1"
@@ -335,10 +478,10 @@ const BusinessProfilePage = () => {
               </div>
               <div className="col-span-3">
                 <div className="mt-6 flex gap-4 items-center">
-                  <button className="bg-blue-700 hover:bg-blue-600 border border-blue-700 text-white px-3 py-2 rounded-md">
+                  <button className="bg-gray-900 hover:bg-gray-600 border border-gray-700 text-white px-3 py-2 rounded-md">
                     Change
                   </button>
-                  <a href="" className="text-blue-800 hover:text-blue-700">
+                  <a href="" className="text-gray-800 hover:text-gray-700">
                     I forgot my password
                   </a>
                 </div>
@@ -359,35 +502,95 @@ const BusinessProfilePage = () => {
                 htmlFor="af-account-password"
                 className="inline-block text-sm text-gray-700 mt-2.5 "
               >
+                Website
+              </label>
+            </div>
+
+            <div className="sm:col-span-3 max-w-sm">
+              <div className="space-y-2">
+                <div className="max-w-sm">
+                  <div className="relative">
+                    <input
+                      type="text"
+                      id="hs-leading-icon"
+                      name="hs-leading-icon"
+                      className="py-3 px-4 ps-11 block w-full border-gray-200 border shadow-sm rounded-lg text-sm focus:z-10 focus:border-gray-500 focus:ring-gray-500 disabled:opacity-50 disabled:pointer-events-none "
+                      placeholder="you@site.com"
+                      value={vendor.vendor_website}
+                    />
+                    <div className="absolute inset-y-0 start-0 flex items-center pointer-events-none z-20 ps-4">
+                      <svg
+                        height="218px"
+                        width="18px"
+                        version="1.1"
+                        id="_x32_"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 512 512"
+                        fill="currentColor"
+                      >
+                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                        <g
+                          id="SVGRepo_tracerCarrier"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        ></g>
+                        <g id="SVGRepo_iconCarrier">
+                          {" "}
+                          <style type="text/css"> </style>{" "}
+                          <g>
+                            {" "}
+                            <path
+                              className="st0"
+                              d="M255.994,0.006C114.607,0.013,0.012,114.612,0,256c0.012,141.387,114.607,255.986,255.994,255.994 C397.393,511.986,511.992,397.387,512,256C511.992,114.612,397.393,0.013,255.994,0.006z M97.607,97.612 c23.34-23.328,51.761-41.475,83.455-52.725c-15.183,18.375-27.84,41.906-37.757,69.116H82.772 C87.452,108.308,92.396,102.824,97.607,97.612z M65.612,138.003h69.986c-9.008,31.929-14.41,67.834-15.363,105.997H32.327 C34.374,205.196,46.3,169.088,65.612,138.003z M65.612,373.997C46.3,342.912,34.374,306.804,32.327,268h87.991 c0.961,38.124,6.21,74.092,15.206,105.998H65.612z M97.607,414.386c-5.211-5.211-10.156-10.695-14.836-16.39h60.573 c4.28,11.774,9.019,22.944,14.312,33.21c6.954,13.438,14.758,25.468,23.348,35.89C149.332,455.846,120.931,437.699,97.607,414.386z M243.998,479.667c-3.746-0.196-7.469-0.477-11.164-0.86c-5.89-2.64-11.722-6.25-17.5-10.961 c-17.632-14.359-33.976-38.671-46.398-69.85h75.061V479.667z M243.998,373.997h-83.436c-9.477-31.171-15.316-67.311-16.328-105.998 h99.763V373.997z M243.998,244H144.31c1.008-38.71,6.875-74.819,16.359-105.997h83.33V244z M243.998,114.003h-74.951 c3.109-7.79,6.367-15.312,9.934-22.195c10.64-20.625,23.17-36.89,36.354-47.656c5.777-4.71,11.609-8.32,17.5-10.96 c3.695-0.382,7.417-0.664,11.164-0.859V114.003z M446.392,138.003c19.312,31.085,31.234,67.194,33.281,105.997h-87.991 c-0.961-38.124-6.21-74.092-15.21-105.997H446.392z M414.393,97.612c5.211,5.211,10.156,10.696,14.836,16.391h-60.577 c-4.281-11.773-9.023-22.945-14.312-33.21c-6.953-13.437-14.758-25.468-23.347-35.89C362.668,56.16,391.065,74.301,414.393,97.612z M267.998,32.333c3.746,0.195,7.469,0.484,11.16,0.859c5.89,2.649,11.723,6.25,17.504,10.96 c17.636,14.359,33.976,38.671,46.397,69.85h-75.061V32.333z M267.998,138.003h83.436c9.476,31.171,15.32,67.31,16.328,105.997 h-99.764V138.003z M267.998,268h99.685c-1.007,38.71-6.874,74.818-16.359,105.998h-83.326V268z M296.661,467.846 c-5.781,4.711-11.614,8.313-17.504,10.961c-3.691,0.375-7.414,0.664-11.16,0.86v-81.67h74.951 c-3.109,7.789-6.367,15.312-9.933,22.195C322.376,440.816,309.845,457.081,296.661,467.846z M414.393,414.386 c-23.336,23.328-51.764,41.476-83.459,52.725c15.187-18.375,27.835-41.905,37.757-69.115h60.538 C424.548,403.692,419.604,409.176,414.393,414.386z M446.392,373.997h-69.998c9.008-31.929,14.414-67.842,15.367-105.998h87.912 C477.626,306.804,465.704,342.912,446.392,373.997z"
+                            ></path>{" "}
+                          </g>{" "}
+                        </g>
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="sm:col-span-2">
+              <label
+                htmlFor="af-account-password"
+                className="inline-block text-sm text-gray-700 mt-2.5 "
+              >
                 URL
               </label>
             </div>
 
             <div className="sm:col-span-3 max-w-sm">
               <div className="space-y-2">
-                <input
-                  id="af-account-password"
-                  type="password"
-                  className="py-2 px-4 block w-full border border-gray-200 rounded-md text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none "
-                  placeholder="Link to social profile"
-                  required
-                />
-                <input
-                  id="af-account-password"
-                  type="password"
-                  className="py-2 px-4 block w-full border border-gray-200 rounded-md text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none "
-                  placeholder="Link to social profile"
-                  required
-                />
-                <input
-                  id="af-account-password"
-                  type="password"
-                  className="py-2 px-4 block w-full border border-gray-200 rounded-md text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none "
-                  placeholder="Link to social profile"
-                  required
-                />
+                {vendor.vendor_social_media.map((socialMedia, index) => (
+                  <div className="relative " key={index}>
+                    <input
+                      type="text"
+                      id="hs-leading-icon"
+                      name="hs-leading-icon"
+                      className="py-3 px-4 ps-11 block w-full border-gray-200 border shadow-sm rounded-lg text-sm focus:z-10 focus:border-gray-500 focus:ring-gray-500 disabled:opacity-50 disabled:pointer-events-none "
+                      placeholder="https://tiktok/@username"
+                      value={socialMedia.social_media_url || ""}
+                    />
+                    <div className="absolute inset-y-0 start-0 flex items-center pointer-events-none z-20 ps-4">
+                      {(() => {
+                        switch (socialMedia.social_media_platform) {
+                          case "Facebook":
+                            return <FaFacebookF size={20} />;
+                          case "Instagram":
+                            return <FaInstagram size={20} />;
+                          case "LinkedIn":
+                            return <FaLinkedinIn size={20} />;
+                          case "Twitter":
+                            return <FaTwitter size={20} />;
+                          default:
+                            return null;
+                        }
+                      })()}
+                    </div>
+                  </div>
+                ))}
               </div>
-
               <div className="col-span-3">
                 <div className="mt-6 flex gap-4 items-center">
                   <div className="flex items-center cursor-pointer gap-1 border border-dashed border-gray-200 hover:bg-natural-100 text-sm text-gray-900 px-3 py-1 rounded-full">
@@ -406,6 +609,9 @@ const BusinessProfilePage = () => {
                     </svg>
                     Add link
                   </div>
+                  <div className="flex items-center cursor-pointer gap-1 bg-black border border-gray-200 hover:bg-natural-100 text-sm text-gray-50 px-3 py-1 rounded-full">
+                    Save info
+                  </div>
                 </div>
               </div>
             </div>
@@ -416,8 +622,8 @@ const BusinessProfilePage = () => {
 
           <h1 className="font-medium text-gray-900 text-lg mb-3">Address</h1>
 
-          <div className="grid grid-cols-5 gap-2 sm:gap-5 w-2/3">
-            <div className="sm:col-span-2">
+          <div className="grid grid-cols-12 gap-2 sm:gap-5">
+            <div className="sm:col-span-3">
               <label
                 htmlFor="af-account-password"
                 className="inline-block text-sm text-gray-700 mt-2.5 "
@@ -426,19 +632,33 @@ const BusinessProfilePage = () => {
               </label>
             </div>
 
-            <div className="sm:col-span-3 max-w-sm">
-              <div className="space-y-2">
-                <div className="max-w-sm">
-                  <BranchCard
-                    browser="chrome"
-                    device="desktop"
-                    ipAddress="192.168.1.1"
-                    isCurrentSession={true}
-                    location="New York, NY"
-                    recentActivity="Last active 2 hours ago"
-                    key={1}
-                  />
-                </div>
+            <div className="sm:col-span-9">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-4 space-y-2">
+                {vendor.branches.map((branch, index) => {
+                  return (
+                    <BranchCard
+                      branchName={
+                        branch.branch_address || "No address provided"
+                      }
+                      branchAddress={
+                        branch.branch_address || "No address provided"
+                      }
+                      branchPhoneNumber={
+                        branch.phone_number.length > 0
+                          ? branch.phone_number[0]
+                          : "No phone number available"
+                      }
+                      branchRegion={
+                        branch.branch_region || "No region provided"
+                      }
+                      branchCountry={
+                        branch.branch_country || "No country provided"
+                      }
+                      branchCity={branch.branch_city || "No city provided"}
+                      mapUrl="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3151.8354345093!2d144.9559253157165!3d-37.81720974297109!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad65d43d1f5d9d1%3A0xf577f3f171b6ed69!2s123%20Main%20St%2C%20London!5e0!3m2!1sen!2suk!4v1605566509630!5m2!1sen!2suk"
+                    />
+                  );
+                })}
               </div>
 
               <div className="col-span-3">
@@ -457,7 +677,7 @@ const BusinessProfilePage = () => {
                         d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2"
                       />
                     </svg>
-                    Add Policy
+                    Add Branch
                   </div>
                 </div>
               </div>
@@ -469,8 +689,8 @@ const BusinessProfilePage = () => {
 
           <h1 className="font-medium text-gray-900 text-lg mb-3">Policy</h1>
 
-          <div className="grid grid-cols-5 gap-2 sm:gap-5 w-2/3">
-            <div className="sm:col-span-2">
+          <div className="grid grid-cols-12 gap-2 sm:gap-5">
+            <div className="sm:col-span-3">
               <label
                 htmlFor="af-account-password"
                 className="inline-block text-sm text-gray-700 mt-2.5 "
@@ -480,19 +700,15 @@ const BusinessProfilePage = () => {
             </div>
             {/* <!-- End Col --> */}
 
-            <div className="sm:col-span-3 max-w-sm">
+            <div className="sm:col-span-9">
               <div className="space-y-2">
-                <div className="max-w-sm">
-                  <label htmlFor="textarea-email-label" className="sr-only">
-                    Comment
-                  </label>
-                  <textarea
-                    id="textarea-email-label"
-                    className="py-3 px-4 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none border"
-                    rows={3}
-                    placeholder="At [Your Business Name], we understand that sometimes plans can change. If you need to cancel your booking, please review our cancellation policy below."
-                  ></textarea>
-                </div>
+             
+                <textarea
+                  id="textarea-email-label"
+                  className="py-3 px-4 block w-full border-gray-200 rounded-lg text-sm focus:border-gray-500 focus:ring-gray-500 disabled:opacity-50 disabled:pointer-events-none border"
+                  rows={5}
+                  placeholder="At [Your Business Name], we understand that sometimes plans can change. If you need to cancel your booking, please review our cancellation policy below."
+                ></textarea>
               </div>
 
               <div className="col-span-3">
@@ -537,9 +753,11 @@ const BusinessProfilePage = () => {
             <div className="sm:col-span-3 max-w-sm">
               <div className="space-y-2">
                 <img
-                  src="https://th.bing.com/th/id/OIP.KeK4iNvligyI2bI6tpnekAHaKk?pid=ImgDet&w=179&h=256&c=7&dpr=1.3"
+                  className="w-30 h-72 object-cover"
+                  src={vendor.license_image}
                   alt=""
                 />
+                ;
               </div>
             </div>
 
@@ -562,26 +780,15 @@ const BusinessProfilePage = () => {
 
             <div className="sm:col-span-5 ">
               <div className="grid grid-cols-1 md:grid-cols-3 gap-2 md:gap-4">
-                <img
-                  src="https://th.bing.com/th/id/OIP.FtudhIBH-HYhxMpS4TU-sAHaE8?rs=1&pid=ImgDetMain"
-                  className="rounded-lg border border-gray-200 shadow-sm shadow-gray-500 h-48"
-                  alt=""
-                />
-                <img
-                  src="https://th.bing.com/th/id/OIP.AN5orVdP9-VdsVVI44sujwHaE8?rs=1&pid=ImgDetMain"
-                  alt=""
-                  className="rounded-lg border border-gray-200 shadow-sm shadow-gray-500 h-48"
-                />
-                <img
-                  src="https://th.bing.com/th/id/OIP.0q4oPmN3i8jA2oNrcVwerAHaEK?rs=1&pid=ImgDetMain"
-                  alt=""
-                  className="rounded-lg border border-gray-200 shadow-sm shadow-gray-500 h-48"
-                />
-                <img
-                  src="https://images.rosewoodhotels.com/is/image/rwhg/heroshot-punta-bonita-pool-and-beach-1"
-                  alt=""
-                  className="rounded-lg border border-gray-200 shadow-sm shadow-gray-500 h-48"
-                />
+                {vendor.property_images.map((property) => {
+                  return (
+                    <img
+                      src={property.image_url}
+                      alt=""
+                      className="rounded-lg border border-gray-200 shadow-sm shadow-gray-500 h-48"
+                    />
+                  );
+                })}
               </div>
             </div>
 

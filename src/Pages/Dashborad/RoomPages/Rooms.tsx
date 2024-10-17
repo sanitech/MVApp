@@ -75,7 +75,7 @@ const Rooms = () => {
           </Link>
         </div>
 
-        <div className="flex flex-wrap gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           {rooms.map((room) => {
             return <RoomVendorCard room={room} fetchRooms={fetchRoom} />;
           })}

@@ -37,7 +37,7 @@ import MenuCreate from "./Pages/Dashborad/Menu/MenuCreate";
 import RoomEdit from "./Pages/Dashborad/RoomPages/RoomEdit";
 import NotificationPages from "./Pages/Dashborad/Notification/NotificationPages";
 import DiscountOfferPage from "./Pages/Dashborad/DiscountOfferPage";
-import BusinessProfilePage from "./Pages/Profile/BusinessProfilePage";
+import BusinessProfilePage from "./Pages/Dashborad/Profile/BusinessProfilePage";
 
 const AdminDashboardLayout = () => {
   const location = useLocation();

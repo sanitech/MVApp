@@ -36,13 +36,13 @@ export function Notifications() {
     <div className="bg-white rounded-lg shadow-sm">
       <div className="p-6">
         <div className="flex flex-row gap-x-6 mb-6">
-          <h1 className="text-2xl font-bold">Notifications</h1>
-          <a className="bg-[#0a3279] font-bold text-white rounded-lg px-3 my-auto">
+          <h1 className="text-2xl font-bold text-gray-800">Notifications</h1>
+          <a className="bg-black font-bold text-white rounded-lg px-3 my-auto">
             {newNotificationCount()}
           </a>
           <a
             onClick={markAllAsRead}
-            className="text-[#868690] m-auto mr-0 cursor-pointer duration-200 hover:text-[#43608c]"
+            className="text-gray-800 m-auto mr-0 cursor-pointer duration-200 hover:text-gray-900"
           >
             Mark all as read
           </a>

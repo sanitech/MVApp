@@ -1,21 +1,23 @@
 import React from "react";
 
 interface BranchCardProps {
-  device: string;
-  location: string;
-  browser: string;
-  ipAddress: string;
-  recentActivity: string;
-  isCurrentSession: boolean;
+  branchName: string;
+  branchAddress: string;
+  branchPhoneNumber: string;
+  branchRegion: string;
+  branchCountry: string;
+  branchCity: string;
+  mapUrl: string;
 }
 
 const BranchCard: React.FC<BranchCardProps> = ({
-  device,
-  location,
-  browser,
-  ipAddress,
-  recentActivity,
-  isCurrentSession,
+  branchName,
+  branchAddress,
+  branchPhoneNumber,
+  branchRegion,
+  branchCountry,
+  branchCity,
+  mapUrl,
 }) => {
   return (
     <div className="w-full max-w-md p-6 border rounded-lg shadow-lg bg-white">
@@ -37,63 +39,46 @@ const BranchCard: React.FC<BranchCardProps> = ({
               />
             </svg>
           </div>
-          <span className="text-lg font-medium">{device}</span>
+          <span className="text-lg font-medium">{branchName}</span>
         </div>
 
         {/* Sign out button */}
         <button className="bg-gray-200 hover:bg-gray-300 text-gray-700 px-4 py-1 rounded-md text-sm">
-          <span>↗ Sign out</span>
+          <span>↗ View Branch</span>
         </button>
       </div>
 
-      {/* Status Tag */}
-      <div className="mb-4">
-        <span
-          className={`${
-            isCurrentSession
-              ? "bg-blue-100 text-blue-500"
-              : "bg-gray-100 text-gray-500"
-          } px-3 py-1 rounded-full text-sm`}
-        >
-          {isCurrentSession ? "Current session" : "Expired"}
-        </span>
-      </div>
-
-      {/* Session Info */}
+      {/* Address Info */}
       <div className="text-sm text-gray-600 space-y-2">
         <div>
-          <span className="font-medium">Location:</span> {location}
+          <span className="font-medium">Address:</span> {branchAddress}
         </div>
         <div>
-          <span className="font-medium">Device:</span> {browser}
+          <span className="font-medium">Phone:</span> {branchPhoneNumber}
         </div>
         <div>
-          <span className="font-medium">IP Address:</span> {ipAddress}
+          <span className="font-medium">City:</span> {branchCity}
         </div>
         <div>
-          <span className="font-medium">Recent Activity:</span> {recentActivity}
+          <span className="font-medium">Region:</span> {branchRegion}
+        </div>
+        <div>
+          <span className="font-medium">Country:</span> {branchCountry}
         </div>
       </div>
 
-      {/* Footer */}
+      {/* Map placeholder */}
       <div className="border-t mt-4 pt-4">
-        <button className="flex items-center gap-2 text-sm text-blue-500 hover:underline">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            strokeWidth="1.5"
-            stroke="currentColor"
-            className="w-5 h-5"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M11.25 8.25v7.5m1.5-7.5v7.5m-9-3.75h16.5m-16.5 0a9 9 0 0116.5 0m-16.5 0a9 9 0 0016.5 0"
-            />
-          </svg>
-          <span>Don’t recognize something?</span>
-        </button>
+        <span className="font-medium">Branch Location:</span>
+        <div className="mt-2">
+          <iframe
+            title="Branch Map"
+            className="w-full h-48 rounded-lg"
+            src={mapUrl}
+            allowFullScreen
+            loading="lazy"
+          ></iframe>
+        </div>
       </div>
     </div>
   );
