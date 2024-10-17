@@ -28,7 +28,7 @@ declare global {
 // if (!PUBLISHABLE_KEY) {
 //   throw new Error("Missing Publishable Key");
 // }
-axios.defaults.baseURL = "http://localhost:5000/api/";
+axios.defaults.baseURL = "https://mvapp.ixtechsoloutions.com/api/";
 axios.defaults.withCredentials = true;
 root.render(
   <React.StrictMode>
