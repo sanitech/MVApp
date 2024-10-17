@@ -1,8 +1,8 @@
 import axios from "axios";
 import React, { useContext, useEffect, useState } from "react";
-import { daysOfWeek, nutritionalIcon } from "../../Constant/Data";
+import { daysOfWeek, nutritionalIcon } from "../../../Constant/Data";
 import { json } from "stream/consumers";
-import Toasts from "../../components/Toasts";
+import Toasts from "../../../components/Toasts";
 
 type categoryProps = {
   category_id: string;

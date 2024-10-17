@@ -1,15 +1,14 @@
 import React, { useEffect, useLayoutEffect, useState } from "react";
 import RegisterVendor from "./Pages/RegisterVendor";
 import DashboardPage from "./Pages/Dashborad/Dashboard";
-import VendorMenu from "./Pages/Dashborad/VendorMenu";
+import VendorMenu from "./Pages/Dashborad/Menu/VendorMenu";
 import { Route, Router, Routes, Outlet, useLocation } from "react-router-dom";
 import VendorOrder from "./Pages/Dashborad/VendorOrder";
 import Navbar from "./components/Navbar";
 import DashboardNavbar from "./components/VendorDashboard/Dashboard/DashboardNavbar";
 import DashboardSidbar from "./components/VendorDashboard/Dashboard/DashboardSidbar";
 import VendorDetailPage from "./Pages/Vendor/VendorPage";
-import MenuCreate from "./Pages/Dashborad/MenuCreate";
-import MenuEdit from "./Pages/Dashborad/MenuEdit";
+import MenuEdit from "./Pages/Dashborad/Menu/MenuEdit";
 import LoginPage from "./Pages/Auth/Login";
 import ProtectedRoute from "./context/ProtectedRoute";
 import axios from "axios";
@@ -26,10 +25,19 @@ import ForgetPassword from "./Pages/Auth/ForgetPassword";
 import AdminDashboard from "./Pages/Admin/AdminDashboard";
 import CategoryList from "./Pages/Admin/Category/CategoryList";
 import ResetPassword from "./Pages/Auth/ResetPassword";
-import MenuCreateForm from "./Pages/Dashborad/CreateMenu";
+import MenuCreateForm from "./Pages/Dashborad/Menu/CreateMenu";
 import AdminMenuCategory from "./Pages/Admin/Category/AdminMenuCategory";
 import MenuCategoryCreateForm from "./components/AdminDashboard/MenuCategoryCreateForm";
-import InterestsCheckbox from "./Pages/Dashborad/CreateMenu";
+import InterestsCheckbox from "./Pages/Dashborad/Menu/CreateMenu";
+import Rooms from "./Pages/Dashborad/RoomPages/Rooms";
+import RoomCreate from "./Pages/Dashborad/RoomPages/RoomCreate";
+import RoomDiscountSession from "./Pages/Dashborad/RoomPages/RoomDiscountSession";
+import RoomDiscountSeasonal from "./Pages/Dashborad/RoomPages/RoomDiscountSession";
+import MenuCreate from "./Pages/Dashborad/Menu/MenuCreate";
+import RoomEdit from "./Pages/Dashborad/RoomPages/RoomEdit";
+import NotificationPages from "./Pages/Dashborad/Notification/NotificationPages";
+import DiscountOfferPage from "./Pages/Dashborad/DiscountOfferPage";
+import BusinessProfilePage from "./Pages/Profile/BusinessProfilePage";
 
 const AdminDashboardLayout = () => {
   const location = useLocation();
@@ -138,7 +146,13 @@ const App = () => {
           <Route path="menu/delete/:id" element={<VendorMenu />} />
           <Route path="orders" element={<VendorOrder />} />
           <Route path="vendor/:id" element={<VendorDetailPage />} />
-          <Route path="rooms" element={<AdminMenuCategory />} />
+          <Route path="rooms" element={<Rooms />} />
+          <Route path="rooms/:id" element={<RoomEdit />} />
+          <Route path="rooms/create" element={<RoomCreate />} />
+          <Route path="rooms/seasonal" element={<RoomDiscountSeasonal />} />
+          <Route path="notifications" element={<NotificationPages />} />
+          <Route path="offer/add" element={<DiscountOfferPage />} />
+          <Route path="profile" element={<BusinessProfilePage />} />
         </Route>
 
         <Route

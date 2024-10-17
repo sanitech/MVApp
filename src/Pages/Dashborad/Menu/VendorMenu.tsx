@@ -1,10 +1,10 @@
 import React, { useContext, useEffect, useState } from "react";
-import MenuCategoryCard from "../../components/VendorDashboard/Menu/MenuCategory";
-import MenuCard from "../../components/VendorDashboard/Menu/MenuCard";
-import MenuCategoryCardAdd from "../../components/VendorDashboard/Menu/MenuCategoryAdd";
+import MenuCategoryCard from "../../../components/VendorDashboard/Menu/MenuCategory";
+import MenuCard from "../../../components/VendorDashboard/Menu/MenuCard";
+import MenuCategoryCardAdd from "../../../components/VendorDashboard/Menu/MenuCategoryAdd";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import DeleteConformation from "../../components/AdminDashboard/DeleteConformation";
+import DeleteConformation from "../../../components/AdminDashboard/DeleteConformation";
 
 type categoryProps = {
   category_id: string;
